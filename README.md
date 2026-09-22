@@ -191,14 +191,23 @@ I'm continuously working toward improving both my problem-solving skills and abi
   </picture>
 </p>
 
-## 📈 Contribution Streak
+## 📈 Activity Consistency
 
 <p align="center">
-  <img
-    src="https://github-readme-streak-stats.herokuapp.com/?user=SaptarshiCodes&theme=transparent&hide_border=true"
-    alt="GitHub contribution streak"
-  />
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="./profile/activity-consistency-wide-dark.svg"
+    >
+    <img
+      alt="GitHub contribution activity and consistency"
+      src="./profile/activity-consistency-wide-light.svg"
+      width="640"
+    >
+  </picture>
 </p>
+
+---
 
 ## 🎯 What I'm Currently Learning
 
