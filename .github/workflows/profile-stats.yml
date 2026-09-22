@@ -20,28 +20,29 @@ jobs:
     steps:
 
       # -----------------------------------
-      # Checkout
+      # Checkout repository
       # -----------------------------------
 
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
 
       # -----------------------------------
-      # Custom Signal Field
-      # NO CALENDAR
+      # Generate Signal Field
       # -----------------------------------
 
       - name: Generate Signal Field
-        env:
-          GITHUB_USERNAME: ${{ github.repository_owner }}
-          GITHUB_TOKEN: ${{ github.token }}
+        uses: shinpr/github-profile-stats@49b5f7091182a45f3ef93923505b660c6da5f835 # v0.2.0
 
-        run: |
-          node scripts/generate-signal-card.mjs
+        id: signal
+
+        with:
+          username: ${{ github.repository_owner }}
+          token: ${{ github.token }}
+          profile: signal-field
 
 
       # -----------------------------------
-      # Activity Consistency
+      # Generate Activity Consistency
       # HAS CALENDAR
       # -----------------------------------
 
@@ -57,7 +58,7 @@ jobs:
 
 
       # -----------------------------------
-      # Language Composition
+      # Generate Language Composition
       # -----------------------------------
 
       - name: Generate Language Composition
@@ -72,11 +73,12 @@ jobs:
 
 
       # -----------------------------------
-      # Stage all generated cards
+      # Stage Shinpr generated cards
       # -----------------------------------
 
       - name: Stage generated cards
         env:
+          SIGNAL_DIR: ${{ steps.signal.outputs.ready-dir }}
           ACTIVITY_DIR: ${{ steps.activity.outputs.ready-dir }}
           LANGUAGE_DIR: ${{ steps.languages.outputs.ready-dir }}
 
@@ -84,42 +86,51 @@ jobs:
 
           mkdir -p profile
 
+          # Signal Field
+          cp "$SIGNAL_DIR"/signal-field-*.svg profile/
 
-          # Custom Signal Field
+          # Activity Consistency
+          cp "$ACTIVITY_DIR"/activity-consistency-*.svg profile/
+
+          # Language Composition
+          cp "$LANGUAGE_DIR"/language-composition-*.svg profile/
+
+
+      # -----------------------------------
+      # Fix Activity Consistency Layout
+      # -----------------------------------
+
+      - name: Fix Activity Card Layout
+        run: |
+          node scripts/fix-activity-card.mjs
+
+
+      # -----------------------------------
+      # Validate generated cards
+      # -----------------------------------
+
+      - name: Validate generated cards
+        run: |
 
           test -s profile/signal-field-wide-light.svg
           test -s profile/signal-field-wide-dark.svg
 
-
-          # Activity Consistency
-
-          cp "$ACTIVITY_DIR"/activity-consistency-*.svg profile/
-
           test -s profile/activity-consistency-wide-light.svg
           test -s profile/activity-consistency-wide-dark.svg
-
-
-          # Language Composition
-
-          cp "$LANGUAGE_DIR"/language-composition-*.svg profile/
 
           test -s profile/language-composition-wide-light.svg
           test -s profile/language-composition-wide-dark.svg
 
 
-          # Stage everything
-
-          git add profile/*.svg
-
-
       # -----------------------------------
-      # Publish
+      # Publish cards
       # -----------------------------------
 
       - name: Publish cards
         run: |
 
-          if git diff --cached --quiet; then
+          if git diff --quiet; then
+            echo "No changes detected."
             exit 0
           fi
 
@@ -127,6 +138,8 @@ jobs:
 
           git config user.email \
             41898282+github-actions[bot]@users.noreply.github.com
+
+          git add profile/*.svg
 
           git commit -m "Update profile stats"
 
