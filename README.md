@@ -170,7 +170,7 @@ I'm continuously working toward improving both my problem-solving skills and abi
     <img
       alt="GitHub activity summary"
       src="./profile/signal-field-wide-light.svg"
-      width="640"
+      width="840"
     >
   </picture>
 </p>
