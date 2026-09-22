@@ -2,6 +2,7 @@ name: Update profile stats
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: '17 3 * * *'
 
@@ -19,19 +20,36 @@ jobs:
     steps:
 
       # -----------------------------------
-      # Checkout repository
+      # Checkout
       # -----------------------------------
 
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
 
       # -----------------------------------
-      # Generate Signal Field
+      # Custom Signal Field
+      # NO CALENDAR
+      # -----------------------------------
+
+      - name: Generate Signal Field
+        env:
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ github.token }}
+
+        run: |
+          node scripts/generate-signal-card.mjs
+
+
+      # -----------------------------------
+      # Activity Consistency
+      # HAS CALENDAR
       # -----------------------------------
 
       - name: Generate Activity Consistency
-        uses: shinpr/github-profile-stats@49b5f7091182a45f3ef93923505b660c6da5f835
+        uses: shinpr/github-profile-stats@49b5f7091182a45f3ef93923505b660c6da5f835 # v0.2.0
+
         id: activity
+
         with:
           username: ${{ github.repository_owner }}
           token: ${{ github.token }}
@@ -39,11 +57,12 @@ jobs:
 
 
       # -----------------------------------
-      # Generate Language Composition
+      # Language Composition
       # -----------------------------------
 
       - name: Generate Language Composition
         uses: shinpr/github-profile-stats@49b5f7091182a45f3ef93923505b660c6da5f835 # v0.2.0
+
         id: languages
 
         with:
@@ -53,47 +72,48 @@ jobs:
 
 
       # -----------------------------------
-      # Generate Custom Activity Card
-      # -----------------------------------
-
-      - name: Generate Activity Consistency Card
-        env:
-            GITHUB_USERNAME: ${{ github.repository_owner }}
-            GITHUB_TOKEN: ${{ github.token }}
-
-        run: |
-          node scripts/generate-contribution-stats.mjs
-
-
-      # -----------------------------------
-      # Stage generated cards
+      # Stage all generated cards
       # -----------------------------------
 
       - name: Stage generated cards
         env:
-          SIGNAL_DIR: ${{ steps.signal.outputs.ready-dir }}
+          ACTIVITY_DIR: ${{ steps.activity.outputs.ready-dir }}
           LANGUAGE_DIR: ${{ steps.languages.outputs.ready-dir }}
 
         run: |
+
           mkdir -p profile
 
-          cp "$SIGNAL_DIR"/signal-field-*.svg profile/
-          cp "$LANGUAGE_DIR"/language-composition-*.svg profile/
+
+          # Custom Signal Field
 
           test -s profile/signal-field-wide-light.svg
           test -s profile/signal-field-wide-dark.svg
 
-          test -s profile/language-composition-wide-light.svg
-          test -s profile/language-composition-wide-dark.svg
+
+          # Activity Consistency
+
+          cp "$ACTIVITY_DIR"/activity-consistency-*.svg profile/
 
           test -s profile/activity-consistency-wide-light.svg
           test -s profile/activity-consistency-wide-dark.svg
+
+
+          # Language Composition
+
+          cp "$LANGUAGE_DIR"/language-composition-*.svg profile/
+
+          test -s profile/language-composition-wide-light.svg
+          test -s profile/language-composition-wide-dark.svg
+
+
+          # Stage everything
 
           git add profile/*.svg
 
 
       # -----------------------------------
-      # Publish cards
+      # Publish
       # -----------------------------------
 
       - name: Publish cards
