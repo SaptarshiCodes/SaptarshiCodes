@@ -32,8 +32,10 @@ I enjoy turning ideas into practical products — from full-stack applications a
   <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
   <img src="https://img.shields.io/badge/Java-E11F21?style=for-the-badge&logo=openjdk&logoColor=white"/>
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
 </p>
+
 
 ### Frontend
 
@@ -160,19 +162,43 @@ I'm continuously working toward improving both my problem-solving skills and abi
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=SaptarshiCodes&show_icons=true&theme=transparent&hide_border=true" height="170"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SaptarshiCodes&layout=compact&theme=transparent&hide_border=true" height="170"/>
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="./profile/signal-field-wide-dark.svg"
+    >
+    <img
+      alt="GitHub activity summary"
+      src="./profile/signal-field-wide-light.svg"
+      width="640"
+    >
+  </picture>
 </p>
 
----
-
-## 📈 Contribution Activity
+## 💻 Language Composition
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=SaptarshiCodes&theme=transparent&hide_border=true"/>
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="./profile/language-composition-wide-dark.svg"
+    >
+    <img
+      alt="GitHub language composition"
+      src="./profile/language-composition-wide-light.svg"
+      width="640"
+    >
+  </picture>
 </p>
 
----
+## 📈 Contribution Streak
+
+<p align="center">
+  <img
+    src="https://github-readme-streak-stats.herokuapp.com/?user=SaptarshiCodes&theme=transparent&hide_border=true"
+    alt="GitHub contribution streak"
+  />
+</p>
 
 ## 🎯 What I'm Currently Learning
 
