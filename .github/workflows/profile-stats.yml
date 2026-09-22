@@ -73,7 +73,7 @@ jobs:
 
 
       # -----------------------------------
-      # Stage Shinpr generated cards
+      # Copy generated cards
       # -----------------------------------
 
       - name: Stage generated cards
@@ -86,13 +86,10 @@ jobs:
 
           mkdir -p profile
 
-          # Signal Field
           cp "$SIGNAL_DIR"/signal-field-*.svg profile/
 
-          # Activity Consistency
           cp "$ACTIVITY_DIR"/activity-consistency-*.svg profile/
 
-          # Language Composition
           cp "$LANGUAGE_DIR"/language-composition-*.svg profile/
 
 
@@ -123,13 +120,22 @@ jobs:
 
 
       # -----------------------------------
-      # Publish cards
+      # Stage changes
+      # -----------------------------------
+
+      - name: Stage changes
+        run: |
+          git add profile/*.svg
+
+
+      # -----------------------------------
+      # Publish
       # -----------------------------------
 
       - name: Publish cards
         run: |
 
-          if git diff --quiet; then
+          if git diff --cached --quiet; then
             echo "No changes detected."
             exit 0
           fi
@@ -138,8 +144,6 @@ jobs:
 
           git config user.email \
             41898282+github-actions[bot]@users.noreply.github.com
-
-          git add profile/*.svg
 
           git commit -m "Update profile stats"
 
