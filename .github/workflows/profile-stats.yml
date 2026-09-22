@@ -59,11 +59,11 @@ jobs:
 
       - name: Generate Activity Consistency Card
         env:
-          GITHUB_USERNAME: ${{ github.repository_owner }}
-          GITHUB_TOKEN: ${{ github.token }}
+            GITHUB_USERNAME: ${{ github.repository_owner }}
+            GITHUB_TOKEN: ${{ github.token }}
 
         run: |
-          node scripts/generate-activity-card.mjs
+          node scripts/generate-contribution-stats.mjs
 
 
       # -----------------------------------
