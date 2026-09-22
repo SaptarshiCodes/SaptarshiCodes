@@ -30,7 +30,7 @@ for (const file of files) {
 
   svg = svg.replace(
     /(<text[^>]*?)x="[^"]*"([^>]*>[^<]*\/\s*365[^<]*<\/text>)/g,
-    '$1x="250"$2'
+    '$1x="160"$2'
   );
 
 
@@ -40,7 +40,7 @@ for (const file of files) {
 
   svg = svg.replace(
     /(<text[^>]*?)x="[^"]*"([^>]*>[^<]*ACTIVE DAYS[^<]*<\/text>)/g,
-    '$1x="250"$2'
+    '$1x="160"$2'
   );
 
 
