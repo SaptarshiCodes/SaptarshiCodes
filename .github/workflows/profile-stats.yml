@@ -17,28 +17,64 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      # -----------------------------------
+      # Checkout repository
+      # -----------------------------------
+
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+
+      # -----------------------------------
+      # Generate Signal Field
+      # -----------------------------------
 
       - name: Generate Signal Field
         uses: shinpr/github-profile-stats@49b5f7091182a45f3ef93923505b660c6da5f835 # v0.2.0
         id: signal
+
         with:
           username: ${{ github.repository_owner }}
           token: ${{ github.token }}
           profile: signal-field
 
+
+      # -----------------------------------
+      # Generate Language Composition
+      # -----------------------------------
+
       - name: Generate Language Composition
         uses: shinpr/github-profile-stats@49b5f7091182a45f3ef93923505b660c6da5f835 # v0.2.0
         id: languages
+
         with:
           username: ${{ github.repository_owner }}
           token: ${{ github.token }}
           profile: language-composition
 
+
+      # -----------------------------------
+      # Generate Custom Activity Card
+      # -----------------------------------
+
+      - name: Generate Activity Consistency Card
+        env:
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ github.token }}
+
+        run: |
+          node scripts/generate-activity-card.mjs
+
+
+      # -----------------------------------
+      # Stage generated cards
+      # -----------------------------------
+
       - name: Stage generated cards
         env:
           SIGNAL_DIR: ${{ steps.signal.outputs.ready-dir }}
           LANGUAGE_DIR: ${{ steps.languages.outputs.ready-dir }}
+
         run: |
           mkdir -p profile
 
@@ -51,16 +87,28 @@ jobs:
           test -s profile/language-composition-wide-light.svg
           test -s profile/language-composition-wide-dark.svg
 
+          test -s profile/activity-consistency-wide-light.svg
+          test -s profile/activity-consistency-wide-dark.svg
+
           git add profile/*.svg
+
+
+      # -----------------------------------
+      # Publish cards
+      # -----------------------------------
 
       - name: Publish cards
         run: |
+
           if git diff --cached --quiet; then
             exit 0
           fi
 
           git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+          git config user.email \
+            41898282+github-actions[bot]@users.noreply.github.com
 
           git commit -m "Update profile stats"
+
           git push
