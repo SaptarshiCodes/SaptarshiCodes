@@ -195,7 +195,7 @@ I'm continuously working toward improving both my problem-solving skills and abi
 
 ---
 
-## 📈 Contribution Activity
+## 📈 Activity Consistency
 
 <p align="center">
   <picture>
