@@ -175,6 +175,8 @@ I'm continuously working toward improving both my problem-solving skills and abi
   </picture>
 </p>
 
+---
+
 ## 💻 Language Composition
 
 <p align="center">
@@ -191,7 +193,9 @@ I'm continuously working toward improving both my problem-solving skills and abi
   </picture>
 </p>
 
-## 📈 Activity Consistency
+---
+
+## 📈 Contribution Activity
 
 <p align="center">
   <picture>
@@ -200,7 +204,7 @@ I'm continuously working toward improving both my problem-solving skills and abi
       srcset="./profile/activity-consistency-wide-dark.svg"
     >
     <img
-      alt="GitHub contribution activity and consistency"
+      alt="GitHub contribution activity"
       src="./profile/activity-consistency-wide-light.svg"
       width="640"
     >
