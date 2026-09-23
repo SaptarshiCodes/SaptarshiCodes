@@ -2,7 +2,6 @@ name: Update profile stats
 
 on:
   workflow_dispatch:
-
   schedule:
     - cron: '17 3 * * *'
 
@@ -18,17 +17,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # =====================================================
+      # CHECKOUT
+      # =====================================================
 
-      # -----------------------------------
-      # Checkout repository
-      # -----------------------------------
-
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
 
-      # -----------------------------------
-      # Generate Signal Field
-      # -----------------------------------
+      # =====================================================
+      # SIGNAL FIELD
+      # Custom generator
+      # NO CALENDAR
+      # =====================================================
 
       - name: Generate Signal Field
         run: node scripts/generate-signal-card.mjs
@@ -37,74 +38,68 @@ jobs:
           GITHUB_USERNAME: ${{ github.repository_owner }}
 
 
-      # -----------------------------------
-      # Generate Activity Consistency
-      # HAS CALENDAR
-      # -----------------------------------
+      # =====================================================
+      # ACTIVITY CONSISTENCY
+      # Shinpr generator
+      # CALENDAR INCLUDED
+      # =====================================================
 
       - name: Generate Activity Consistency
         uses: shinpr/github-profile-stats@49b5f7091182a45f3ef93923505b660c6da5f835 # v0.2.0
-
         id: activity
-
         with:
           username: ${{ github.repository_owner }}
           token: ${{ github.token }}
           profile: activity-consistency
 
 
-      # -----------------------------------
-      # Generate Language Composition
-      # -----------------------------------
+      # =====================================================
+      # LANGUAGE COMPOSITION
+      # Shinpr generator
+      # =====================================================
 
       - name: Generate Language Composition
         uses: shinpr/github-profile-stats@49b5f7091182a45f3ef93923505b660c6da5f835 # v0.2.0
-
         id: languages
-
         with:
           username: ${{ github.repository_owner }}
           token: ${{ github.token }}
           profile: language-composition
 
 
-      # -----------------------------------
-      # Copy generated cards
-      # -----------------------------------
+      # =====================================================
+      # COPY SHINPR GENERATED CARDS
+      # Signal Field is NOT copied here because our
+      # custom generator already created it in /profile
+      # =====================================================
 
-      - name: Stage generated cards
+      - name: Stage Shinpr generated cards
         env:
-          SIGNAL_DIR: ${{ steps.signal.outputs.ready-dir }}
           ACTIVITY_DIR: ${{ steps.activity.outputs.ready-dir }}
           LANGUAGE_DIR: ${{ steps.languages.outputs.ready-dir }}
-
         run: |
-
           mkdir -p profile
 
-          cp "$SIGNAL_DIR"/signal-field-*.svg profile/
-
           cp "$ACTIVITY_DIR"/activity-consistency-*.svg profile/
-
           cp "$LANGUAGE_DIR"/language-composition-*.svg profile/
 
 
-      # -----------------------------------
-      # Fix Activity Consistency Layout
-      # -----------------------------------
+      # =====================================================
+      # FIX ACTIVITY CONSISTENCY LAYOUT
+      # Keeps the calendar but fixes the top statistics
+      # =====================================================
 
       - name: Fix Activity Card Layout
         run: |
           node scripts/fix-activity-card.mjs
 
 
-      # -----------------------------------
-      # Validate generated cards
-      # -----------------------------------
+      # =====================================================
+      # VALIDATE GENERATED CARDS
+      # =====================================================
 
       - name: Validate generated cards
         run: |
-
           test -s profile/signal-field-wide-light.svg
           test -s profile/signal-field-wide-dark.svg
 
@@ -115,32 +110,25 @@ jobs:
           test -s profile/language-composition-wide-dark.svg
 
 
-      # -----------------------------------
-      # Stage changes
-      # -----------------------------------
+      # =====================================================
+      # PUBLISH
+      # =====================================================
 
       - name: Stage changes
         run: |
           git add profile/*.svg
 
 
-      # -----------------------------------
-      # Publish
-      # -----------------------------------
-
       - name: Publish cards
         run: |
-
           if git diff --cached --quiet; then
             echo "No changes detected."
             exit 0
           fi
 
-          git config user.name github-actions[bot]
-
+          git config user.name "github-actions[bot]"
           git config user.email \
-            41898282+github-actions[bot]@users.noreply.github.com
+            "41898282+github-actions[bot]@users.noreply.github.com"
 
           git commit -m "Update profile stats"
-
           git push
