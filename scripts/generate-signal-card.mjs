@@ -8,14 +8,18 @@ if (!username || !token) {
 }
 
 // ============================================================
-// GitHub GraphQL Query
+// GitHub GraphQL
 // ============================================================
 
 const query = `
 query($login: String!) {
   user(login: $login) {
+
     contributionsCollection {
-      totalCommitContributions
+      contributionCalendar {
+        totalContributions
+      }
+
       totalPullRequestContributions
       totalIssueContributions
     }
@@ -34,7 +38,7 @@ query($login: String!) {
 `;
 
 // ============================================================
-// Fetch GitHub Data
+// Fetch GitHub data
 // ============================================================
 
 const response = await fetch("https://api.github.com/graphql", {
@@ -63,32 +67,45 @@ if (!response.ok) {
 const result = await response.json();
 
 if (result.errors) {
-  throw new Error(JSON.stringify(result.errors, null, 2));
+  throw new Error(
+    JSON.stringify(result.errors, null, 2)
+  );
 }
 
 const user = result.data?.user;
 
 if (!user) {
-  throw new Error(`GitHub user "${username}" not found`);
+  throw new Error(
+    `GitHub user "${username}" not found`
+  );
 }
 
 // ============================================================
-// Extract Statistics
+// Statistics
 // ============================================================
 
+// Total GitHub contributions in the past year
 const contributions =
-  user.contributionsCollection.totalCommitContributions;
+  user.contributionsCollection.contributionCalendar
+    .totalContributions;
 
+// Pull requests
 const pullRequests =
-  user.contributionsCollection.totalPullRequestContributions;
+  user.contributionsCollection
+    .totalPullRequestContributions;
 
+// Issues
 const issues =
-  user.contributionsCollection.totalIssueContributions;
+  user.contributionsCollection
+    .totalIssueContributions;
 
-const stars = user.repositories.nodes.reduce(
-  (total, repo) => total + repo.stargazerCount,
-  0
-);
+// Repository stars
+const stars =
+  user.repositories.nodes.reduce(
+    (total, repo) =>
+      total + repo.stargazerCount,
+    0
+  );
 
 // ============================================================
 // Helpers
@@ -104,14 +121,49 @@ function escapeXml(value) {
 }
 
 function formatNumber(value) {
-  return new Intl.NumberFormat("en-US").format(value);
+  return new Intl.NumberFormat("en-US")
+    .format(value);
 }
 
 // ============================================================
-// Generate SVG
+// Date range
+// ============================================================
+
+const today = new Date();
+
+const endDate = new Date(today);
+
+const startDate = new Date(today);
+startDate.setFullYear(
+  startDate.getFullYear() - 1
+);
+startDate.setDate(
+  startDate.getDate() + 1
+);
+
+function formatDate(date) {
+  const year = date.getFullYear();
+
+  const month = String(
+    date.getMonth() + 1
+  ).padStart(2, "0");
+
+  const day = String(
+    date.getDate()
+  ).padStart(2, "0");
+
+  return `${year}.${month}.${day}`;
+}
+
+const dateRange =
+  `${formatDate(startDate)} — ${formatDate(endDate)}`;
+
+// ============================================================
+// SVG
 // ============================================================
 
 function createCard({ dark }) {
+
   const background = dark
     ? "#12151d"
     : "#ffffff";
@@ -124,121 +176,21 @@ function createCard({ dark }) {
     ? "#aab0c0"
     : "#6b7280";
 
-  const border = dark
+  const divider = dark
     ? "#303644"
     : "#d8dce5";
 
-  // ==========================================================
-  // Statistics
-  // ==========================================================
+  const accent = dark
+    ? "#ff8068"
+    : "#e66b55";
 
-  const stats = [
-    {
-      value: formatNumber(contributions),
-      label: "CONTRIBUTIONS",
-      description: "COMMIT ACTIVITY",
-    },
-
-    {
-      value: formatNumber(stars),
-      label: "STARS",
-      description: "REPOSITORY STARS",
-    },
-
-    {
-      value: formatNumber(pullRequests),
-      label: "PULL REQUESTS",
-      description: "AUTHORED PRs",
-    },
-
-    {
-      value: formatNumber(issues),
-      label: "ISSUES",
-      description: "AUTHORED ISSUES",
-    },
-  ];
-
-  // ==========================================================
-  // Positions
-  // ==========================================================
-
-  const positions = [
-    90,
-    390,
-    690,
-    990,
-  ];
-
-  // ==========================================================
-  // Statistic SVG
-  // ==========================================================
-
-  const statSvg = stats
-    .map(
-      (stat, index) => `
-        <g transform="translate(${positions[index]}, 215)">
-
-          <text
-            x="0"
-            y="0"
-            fill="${foreground}"
-            font-family="monospace"
-            font-size="72"
-            font-weight="700"
-          >
-            ${escapeXml(stat.value)}
-          </text>
-
-          <text
-            x="0"
-            y="48"
-            fill="${foreground}"
-            font-family="monospace"
-            font-size="19"
-            font-weight="700"
-            letter-spacing="1"
-          >
-            ${escapeXml(stat.label)}
-          </text>
-
-          <text
-            x="0"
-            y="78"
-            fill="${muted}"
-            font-family="monospace"
-            font-size="14"
-            font-weight="700"
-            letter-spacing="0.5"
-          >
-            ${escapeXml(stat.description)}
-          </text>
-
-        </g>
-      `
-    )
-    .join("");
-
-  // ==========================================================
-  // SVG
-  //
-  // ONLY:
-  // - Header
-  // - Statistics
-  // - Vertical separators
-  //
-  // NO:
-  // - Activity Signal
-  // - Signal bars
-  // - Calendar
-  // - "NO CALENDAR"
-  // ==========================================================
 
   return `
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="1280"
-  height="380"
-  viewBox="0 0 1280 380"
+  height="300"
+  viewBox="0 0 1280 300"
 >
 
   <!-- ======================================================
@@ -246,13 +198,11 @@ function createCard({ dark }) {
        ====================================================== -->
 
   <rect
-    x="10"
-    y="10"
-    width="1260"
-    height="360"
+    x="0"
+    y="0"
+    width="1280"
+    height="300"
     fill="${background}"
-    stroke="${border}"
-    stroke-width="2"
   />
 
 
@@ -261,92 +211,223 @@ function createCard({ dark }) {
        ====================================================== -->
 
   <text
-    x="70"
-    y="65"
+    x="65"
+    y="42"
     fill="${foreground}"
     font-family="monospace"
     font-size="21"
     font-weight="700"
   >
-    ${escapeXml(username)} · SIGNAL FIELD
+    ${escapeXml(username)} · GITHUB ACTIVITY
   </text>
 
+
+  <!-- Date -->
+
   <text
-    x="1210"
-    y="65"
+    x="1215"
+    y="42"
     text-anchor="end"
     fill="${muted}"
     font-family="monospace"
-    font-size="16"
-    font-weight="700"
+    font-size="17"
+    font-weight="500"
   >
-    GITHUB ACTIVITY
+    ${dateRange}
   </text>
 
 
   <!-- ======================================================
-       Header Divider
+       Main Contribution Number
        ====================================================== -->
 
-  <line
-    x1="70"
-    y1="95"
-    x2="1210"
-    y2="95"
-    stroke="${border}"
-    stroke-width="2"
-  />
+  <text
+    x="65"
+    y="190"
+    fill="${foreground}"
+    font-family="monospace"
+    font-size="96"
+    font-weight="700"
+  >
+    ${escapeXml(formatNumber(contributions))}
+  </text>
 
 
   <!-- ======================================================
-       Statistics
+       Contribution Label Accent
        ====================================================== -->
 
-  ${statSvg}
+  <rect
+    x="65"
+    y="232"
+    width="40"
+    height="4"
+    fill="${accent}"
+  />
+
+
+  <text
+    x="122"
+    y="238"
+    fill="${foreground}"
+    font-family="monospace"
+    font-size="19"
+    font-weight="700"
+    letter-spacing="0.3"
+  >
+    CONTRIBUTIONS
+  </text>
+
+
+  <text
+    x="292"
+    y="238"
+    fill="${foreground}"
+    font-family="monospace"
+    font-size="19"
+    font-weight="700"
+  >
+    ·
+  </text>
+
+
+  <text
+    x="316"
+    y="238"
+    fill="${foreground}"
+    font-family="monospace"
+    font-size="19"
+    font-weight="700"
+  >
+    PAST YEAR
+  </text>
 
 
   <!-- ======================================================
-       Vertical Separators
+       Stars
        ====================================================== -->
 
   <line
-    x1="350"
-    y1="145"
-    x2="350"
-    y2="320"
-    stroke="${border}"
+    x1="570"
+    y1="113"
+    x2="745"
+    y2="113"
+    stroke="${divider}"
     stroke-width="2"
   />
 
+
+  <text
+    x="570"
+    y="184"
+    fill="${foreground}"
+    font-family="monospace"
+    font-size="48"
+    font-weight="500"
+  >
+    ${escapeXml(formatNumber(stars))}
+  </text>
+
+
+  <text
+    x="570"
+    y="226"
+    fill="${muted}"
+    font-family="monospace"
+    font-size="19"
+    font-weight="700"
+  >
+    STARS
+  </text>
+
+
+  <!-- ======================================================
+       Pull Requests
+       ====================================================== -->
+
   <line
-    x1="650"
-    y1="145"
-    x2="650"
-    y2="320"
-    stroke="${border}"
+    x1="785"
+    y1="113"
+    x2="960"
+    y2="113"
+    stroke="${divider}"
     stroke-width="2"
   />
 
+
+  <text
+    x="785"
+    y="184"
+    fill="${foreground}"
+    font-family="monospace"
+    font-size="48"
+    font-weight="500"
+  >
+    ${escapeXml(formatNumber(pullRequests))}
+  </text>
+
+
+  <text
+    x="785"
+    y="226"
+    fill="${muted}"
+    font-family="monospace"
+    font-size="19"
+    font-weight="700"
+  >
+    PULL REQUESTS
+  </text>
+
+
+  <!-- ======================================================
+       Issues
+       ====================================================== -->
+
   <line
-    x1="950"
-    y1="145"
-    x2="950"
-    y2="320"
-    stroke="${border}"
+    x1="1000"
+    y1="113"
+    x2="1175"
+    y2="113"
+    stroke="${divider}"
     stroke-width="2"
   />
+
+
+  <text
+    x="1000"
+    y="184"
+    fill="${foreground}"
+    font-family="monospace"
+    font-size="48"
+    font-weight="500"
+  >
+    ${escapeXml(formatNumber(issues))}
+  </text>
+
+
+  <text
+    x="1000"
+    y="226"
+    fill="${muted}"
+    font-family="monospace"
+    font-size="19"
+    font-weight="700"
+  >
+    ISSUES
+  </text>
 
 </svg>
 `;
 }
 
 // ============================================================
-// Write Files
+// Write SVG files
 // ============================================================
 
-fs.mkdirSync("profile", {
-  recursive: true,
-});
+fs.mkdirSync(
+  "profile",
+  { recursive: true }
+);
 
 fs.writeFileSync(
   "profile/signal-field-v2-wide-light.svg",
@@ -366,7 +447,9 @@ fs.writeFileSync(
 // Log
 // ============================================================
 
-console.log("Signal Field generated successfully.");
+console.log(
+  "Signal Field generated successfully."
+);
 
 console.log({
   username,
@@ -374,4 +457,5 @@ console.log({
   stars,
   pullRequests,
   issues,
+  dateRange,
 });
