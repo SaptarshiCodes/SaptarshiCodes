@@ -165,17 +165,15 @@ I'm continuously working toward improving both my problem-solving skills and abi
   <picture>
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="./profile/signal-field-wide-dark.svg"
+      srcset="./profile/signal-field-v2-wide-dark.svg"
     >
     <img
       alt="GitHub activity summary"
-      src="./profile/signal-field-wide-light.svg"
-      width="840"
+      src="./profile/signal-field-v2-wide-light.svg"
+      width="950"
     >
   </picture>
 </p>
-
----
 
 ## 💻 Language Composition
 
