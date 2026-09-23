@@ -50,7 +50,7 @@ for (const file of files) {
 
   svg = svg.replace(
     /(<text[^>]*?)x="[^"]*"([^>]*>[^<]*CURRENT STREAK[^<]*<\/text>)/g,
-    '$1x="360"$2'
+    '$1x="320"$2'
   );
 
 
@@ -60,7 +60,7 @@ for (const file of files) {
 
   svg = svg.replace(
     /(<text[^>]*?)x="[^"]*"([^>]*>[^<]*LONGEST STREAK[^<]*<\/text>)/g,
-    '$1x="505"$2'
+    '$1x="490"$2'
   );
 
 
