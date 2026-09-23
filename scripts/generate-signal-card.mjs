@@ -4,363 +4,504 @@ const username = process.env.GITHUB_USERNAME;
 const token = process.env.GITHUB_TOKEN;
 
 if (!username || !token) {
-  throw new Error("GITHUB_USERNAME and GITHUB_TOKEN are required.");
+  throw new Error("GITHUB_USERNAME or GITHUB_TOKEN is missing");
 }
 
+// ============================================================
+// GitHub GraphQL Query
+// ============================================================
+
 const query = `
-query($login: String!, $from: DateTime!, $to: DateTime!) {
+query($login: String!) {
   user(login: $login) {
-    contributionsCollection(from: $from, to: $to) {
-      contributionCalendar {
-        totalContributions
-      }
+    contributionsCollection {
+      totalCommitContributions
+      totalPullRequestContributions
+      totalIssueContributions
     }
 
     repositories(
       first: 100
       ownerAffiliations: OWNER
-      privacy: PUBLIC
       isFork: false
     ) {
-      totalCount
       nodes {
         stargazerCount
       }
-    }
-
-    pullRequests(
-      first: 1
-      states: [OPEN, CLOSED, MERGED]
-    ) {
-      totalCount
-    }
-
-    issues(
-      first: 1
-      states: [OPEN, CLOSED]
-    ) {
-      totalCount
     }
   }
 }
 `;
 
-const now = new Date();
+// ============================================================
+// Fetch GitHub Data
+// ============================================================
 
-const from = new Date(now);
-from.setUTCDate(from.getUTCDate() - 365);
+const response = await fetch("https://api.github.com/graphql", {
+  method: "POST",
 
-const response = await fetch(
-  "https://api.github.com/graphql",
-  {
-    method: "POST",
+  headers: {
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
+    "User-Agent": "github-profile-stats",
+  },
 
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-      "User-Agent": "github-profile-card"
+  body: JSON.stringify({
+    query,
+    variables: {
+      login: username,
     },
-
-    body: JSON.stringify({
-      query,
-
-      variables: {
-        login: username,
-        from: from.toISOString(),
-        to: now.toISOString()
-      }
-    })
-  }
-);
+  }),
+});
 
 if (!response.ok) {
-  throw new Error(`GitHub API error: ${response.status}`);
+  throw new Error(
+    `GitHub API failed: ${response.status} ${response.statusText}`
+  );
 }
 
 const result = await response.json();
 
 if (result.errors) {
-  console.error(result.errors);
-  throw new Error("GitHub GraphQL API returned an error.");
+  throw new Error(
+    JSON.stringify(result.errors, null, 2)
+  );
 }
 
-const user = result.data.user;
+const user = result.data?.user;
+
+if (!user) {
+  throw new Error(`GitHub user "${username}" not found`);
+}
+
+// ============================================================
+// Extract Statistics
+// ============================================================
 
 const contributions =
-  user.contributionsCollection
-    .contributionCalendar
-    .totalContributions;
+  user.contributionsCollection.totalCommitContributions;
 
-const repositories =
-  user.repositories.totalCount;
+const pullRequests =
+  user.contributionsCollection.totalPullRequestContributions;
+
+const issues =
+  user.contributionsCollection.totalIssueContributions;
 
 const stars = user.repositories.nodes.reduce(
   (total, repo) => total + repo.stargazerCount,
   0
 );
 
-const pullRequests =
-  user.pullRequests.totalCount;
+// ============================================================
+// Helpers
+// ============================================================
 
-const issues =
-  user.issues.totalCount;
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
 
-const formatNumber = (number) =>
-  new Intl.NumberFormat("en-US").format(number);
+function formatNumber(value) {
+  return new Intl.NumberFormat("en-US").format(value);
+}
 
-const displayName = username.toUpperCase();
+// ============================================================
+// Generate SVG
+// ============================================================
 
+function createCard({ dark }) {
+  const background = dark
+    ? "#12151d"
+    : "#ffffff";
 
-function createSvg({
-  background,
-  border,
-  primary,
-  secondary,
-  muted,
-  accent
-}) {
+  const foreground = dark
+    ? "#f5f5f5"
+    : "#202124";
+
+  const muted = dark
+    ? "#aab0c0"
+    : "#6b7280";
+
+  const border = dark
+    ? "#303644"
+    : "#d8dce5";
+
+  const accent = dark
+    ? "#ff8b55"
+    : "#d95f32";
+
+  const subtle = dark
+    ? "#1b202b"
+    : "#f4f5f7";
+
+  // ----------------------------------------------------------
+  // Statistics
+  // ----------------------------------------------------------
+
+  const stats = [
+    {
+      value: formatNumber(contributions),
+      label: "CONTRIBUTIONS",
+      description: "COMMIT ACTIVITY",
+    },
+
+    {
+      value: formatNumber(stars),
+      label: "STARS",
+      description: "REPOSITORY STARS",
+    },
+
+    {
+      value: formatNumber(pullRequests),
+      label: "PULL REQUESTS",
+      description: "AUTHORED PRs",
+    },
+
+    {
+      value: formatNumber(issues),
+      label: "ISSUES",
+      description: "AUTHORED ISSUES",
+    },
+  ];
+
+  // ----------------------------------------------------------
+  // Positions
+  // ----------------------------------------------------------
+
+  const positions = [
+    90,
+    390,
+    690,
+    990,
+  ];
+
+  // ----------------------------------------------------------
+  // Statistic SVG
+  // ----------------------------------------------------------
+
+  const statSvg = stats
+    .map(
+      (stat, index) => `
+        <g transform="translate(${positions[index]}, 215)">
+
+          <text
+            x="0"
+            y="0"
+            fill="${foreground}"
+            font-family="monospace"
+            font-size="72"
+            font-weight="700"
+          >
+            ${escapeXml(stat.value)}
+          </text>
+
+          <text
+            x="0"
+            y="48"
+            fill="${foreground}"
+            font-family="monospace"
+            font-size="19"
+            font-weight="700"
+            letter-spacing="1"
+          >
+            ${escapeXml(stat.label)}
+          </text>
+
+          <text
+            x="0"
+            y="78"
+            fill="${muted}"
+            font-family="monospace"
+            font-size="14"
+            font-weight="700"
+            letter-spacing="0.5"
+          >
+            ${escapeXml(stat.description)}
+          </text>
+
+        </g>
+      `
+    )
+    .join("");
+
+  // ----------------------------------------------------------
+  // Decorative signal bars
+  // ----------------------------------------------------------
+
+  const bars = [
+    24, 42, 30, 58, 36, 70, 45, 62,
+    32, 52, 76, 40, 64, 48, 72, 34,
+    56, 28, 66, 44, 60, 38, 74, 50,
+  ];
+
+  const signalBars = bars
+    .map((height, index) => {
+      const x = 70 + index * 47;
+      const y = 570 - height;
+
+      return `
+        <rect
+          x="${x}"
+          y="${y}"
+          width="22"
+          height="${height}"
+          rx="3"
+          fill="${index % 6 === 0 ? accent : subtle}"
+        />
+      `;
+    })
+    .join("");
+
+  // ==========================================================
+  // SVG
+  // ==========================================================
 
   return `
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  width="900"
-  height="300"
-  viewBox="0 0 900 300"
+  width="1280"
+  height="720"
+  viewBox="0 0 1280 720"
 >
 
-  <!-- Background -->
+  <!-- ======================================================
+       Background
+       ====================================================== -->
 
   <rect
-    x="4"
-    y="4"
-    width="892"
-    height="292"
+    x="10"
+    y="10"
+    width="1260"
+    height="700"
     fill="${background}"
     stroke="${border}"
     stroke-width="2"
   />
 
 
-  <!-- Header -->
+  <!-- ======================================================
+       Header
+       ====================================================== -->
 
   <text
-    x="55"
-    y="60"
+    x="70"
+    y="65"
+    fill="${foreground}"
     font-family="monospace"
-    font-size="19"
+    font-size="21"
     font-weight="700"
-    fill="${primary}"
   >
-    ${displayName} · SIGNAL FIELD
+    ${escapeXml(username)} · SIGNAL FIELD
   </text>
 
-
   <text
-    x="845"
-    y="60"
+    x="1210"
+    y="65"
     text-anchor="end"
+    fill="${muted}"
     font-family="monospace"
-    font-size="12"
+    font-size="16"
     font-weight="700"
-    fill="${secondary}"
   >
     GITHUB ACTIVITY
   </text>
 
 
-  <!-- Contributions -->
-
-  <text
-    x="55"
-    y="140"
-    font-family="Arial, Helvetica, sans-serif"
-    font-size="64"
-    font-weight="700"
-    fill="${primary}"
-  >
-    ${formatNumber(contributions)}
-  </text>
-
-  <text
-    x="55"
-    y="170"
-    font-family="monospace"
-    font-size="13"
-    font-weight="700"
-    fill="${secondary}"
-  >
-    CONTRIBUTIONS · PAST YEAR
-  </text>
-
-
-  <!-- Divider -->
+  <!-- ======================================================
+       Header Divider
+       ====================================================== -->
 
   <line
-    x1="330"
+    x1="70"
     y1="95"
-    x2="330"
-    y2="205"
+    x2="1210"
+    y2="95"
     stroke="${border}"
     stroke-width="2"
   />
 
 
-  <!-- Stars -->
+  <!-- ======================================================
+       Statistics
+       ====================================================== -->
 
-  <text
-    x="380"
-    y="140"
-    font-family="Arial, Helvetica, sans-serif"
-    font-size="42"
-    font-weight="700"
-    fill="${accent}"
-  >
-    ${formatNumber(stars)}
-  </text>
-
-  <text
-    x="380"
-    y="170"
-    font-family="monospace"
-    font-size="13"
-    font-weight="700"
-    fill="${secondary}"
-  >
-    STARS
-  </text>
+  ${statSvg}
 
 
-  <!-- Repositories -->
-
-  <text
-    x="540"
-    y="140"
-    font-family="Arial, Helvetica, sans-serif"
-    font-size="42"
-    font-weight="700"
-    fill="${primary}"
-  >
-    ${formatNumber(repositories)}
-  </text>
-
-  <text
-    x="540"
-    y="170"
-    font-family="monospace"
-    font-size="13"
-    font-weight="700"
-    fill="${secondary}"
-  >
-    REPOSITORIES
-  </text>
-
-
-  <!-- Pull Requests -->
-
-  <text
-    x="710"
-    y="140"
-    font-family="Arial, Helvetica, sans-serif"
-    font-size="42"
-    font-weight="700"
-    fill="${primary}"
-  >
-    ${formatNumber(pullRequests)}
-  </text>
-
-  <text
-    x="710"
-    y="170"
-    font-family="monospace"
-    font-size="13"
-    font-weight="700"
-    fill="${secondary}"
-  >
-    PULL REQUESTS
-  </text>
-
-
-  <!-- Footer -->
+  <!-- ======================================================
+       Vertical separators
+       ====================================================== -->
 
   <line
-    x1="55"
-    y1="215"
-    x2="845"
-    y2="215"
+    x1="350"
+    y1="145"
+    x2="350"
+    y2="320"
     stroke="${border}"
     stroke-width="2"
   />
 
+  <line
+    x1="650"
+    y1="145"
+    x2="650"
+    y2="320"
+    stroke="${border}"
+    stroke-width="2"
+  />
+
+  <line
+    x1="950"
+    y1="145"
+    x2="950"
+    y2="320"
+    stroke="${border}"
+    stroke-width="2"
+  />
+
+
+  <!-- ======================================================
+       Signal Field Section
+       ====================================================== -->
+
   <text
-    x="55"
-    y="250"
+    x="70"
+    y="385"
+    fill="${foreground}"
     font-family="monospace"
-    font-size="11"
+    font-size="18"
     font-weight="700"
-    fill="${secondary}"
   >
-    PUBLIC GITHUB ACTIVITY · GENERATED AUTOMATICALLY
+    ACTIVITY SIGNAL
   </text>
 
   <text
-    x="845"
-    y="250"
+    x="1210"
+    y="385"
     text-anchor="end"
-    font-family="monospace"
-    font-size="11"
-    font-weight="700"
     fill="${muted}"
+    font-family="monospace"
+    font-size="14"
+    font-weight="700"
+  >
+    REPOSITORY ACTIVITY
+  </text>
+
+
+  <!-- ======================================================
+       Signal Divider
+       ====================================================== -->
+
+  <line
+    x1="70"
+    y1="410"
+    x2="1210"
+    y2="410"
+    stroke="${border}"
+    stroke-width="2"
+  />
+
+
+  <!-- ======================================================
+       Signal Bars
+       ====================================================== -->
+
+  ${signalBars}
+
+
+  <!-- ======================================================
+       Bottom Divider
+       ====================================================== -->
+
+  <line
+    x1="70"
+    y1="615"
+    x2="1210"
+    y2="615"
+    stroke="${border}"
+    stroke-width="2"
+  />
+
+
+  <!-- ======================================================
+       Footer
+       ====================================================== -->
+
+  <text
+    x="70"
+    y="655"
+    fill="${muted}"
+    font-family="monospace"
+    font-size="15"
+    font-weight="700"
+  >
+    CONTRIBUTIONS · STARS · PULL REQUESTS · ISSUES
+  </text>
+
+  <text
+    x="1210"
+    y="655"
+    text-anchor="end"
+    fill="${muted}"
+    font-family="monospace"
+    font-size="15"
+    font-weight="700"
   >
     NO CALENDAR
   </text>
+
+
+  <!-- ======================================================
+       Accent
+       ====================================================== -->
+
+  <circle
+    cx="1195"
+    cy="690"
+    r="5"
+    fill="${accent}"
+  />
 
 </svg>
 `;
 }
 
-
-const lightSvg = createSvg({
-  background: "#ffffff",
-  border: "#d1d5db",
-  primary: "#111827",
-  secondary: "#6b7280",
-  muted: "#9ca3af",
-  accent: "#e76f32"
-});
-
-
-const darkSvg = createSvg({
-  background: "#11141c",
-  border: "#303746",
-  primary: "#f5f1e8",
-  secondary: "#aeb8cc",
-  muted: "#8994aa",
-  accent: "#ff8a5b"
-});
-
+// ============================================================
+// Write Files
+// ============================================================
 
 fs.mkdirSync("profile", {
-  recursive: true
+  recursive: true,
 });
-
 
 fs.writeFileSync(
   "profile/signal-field-wide-light.svg",
-  lightSvg.trim()
+  createCard({
+    dark: false,
+  })
 );
 
 fs.writeFileSync(
   "profile/signal-field-wide-dark.svg",
-  darkSvg.trim()
+  createCard({
+    dark: true,
+  })
 );
 
+// ============================================================
+// Log
+// ============================================================
 
-console.log("Signal Field card generated.");
+console.log("Signal Field generated successfully.");
 
 console.log({
+  username,
   contributions,
   stars,
-  repositories,
   pullRequests,
-  issues
+  issues,
 });
