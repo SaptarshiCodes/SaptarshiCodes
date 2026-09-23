@@ -31,14 +31,10 @@ jobs:
       # -----------------------------------
 
       - name: Generate Signal Field
-        uses: shinpr/github-profile-stats@49b5f7091182a45f3ef93923505b660c6da5f835 # v0.2.0
-
-        id: signal
-
-        with:
-          username: ${{ github.repository_owner }}
-          token: ${{ github.token }}
-          profile: signal-field
+        run: node scripts/generate-signal-card.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_USERNAME: ${{ github.repository_owner }}
 
 
       # -----------------------------------
