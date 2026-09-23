@@ -63,9 +63,7 @@ if (!response.ok) {
 const result = await response.json();
 
 if (result.errors) {
-  throw new Error(
-    JSON.stringify(result.errors, null, 2)
-  );
+  throw new Error(JSON.stringify(result.errors, null, 2));
 }
 
 const user = result.data?.user;
@@ -130,17 +128,9 @@ function createCard({ dark }) {
     ? "#303644"
     : "#d8dce5";
 
-  const accent = dark
-    ? "#ff8b55"
-    : "#d95f32";
-
-  const subtle = dark
-    ? "#1b202b"
-    : "#f4f5f7";
-
-  // ----------------------------------------------------------
+  // ==========================================================
   // Statistics
-  // ----------------------------------------------------------
+  // ==========================================================
 
   const stats = [
     {
@@ -168,9 +158,9 @@ function createCard({ dark }) {
     },
   ];
 
-  // ----------------------------------------------------------
+  // ==========================================================
   // Positions
-  // ----------------------------------------------------------
+  // ==========================================================
 
   const positions = [
     90,
@@ -179,9 +169,9 @@ function createCard({ dark }) {
     990,
   ];
 
-  // ----------------------------------------------------------
+  // ==========================================================
   // Statistic SVG
-  // ----------------------------------------------------------
+  // ==========================================================
 
   const statSvg = stats
     .map(
@@ -228,44 +218,27 @@ function createCard({ dark }) {
     )
     .join("");
 
-  // ----------------------------------------------------------
-  // Decorative signal bars
-  // ----------------------------------------------------------
-
-  const bars = [
-    24, 42, 30, 58, 36, 70, 45, 62,
-    32, 52, 76, 40, 64, 48, 72, 34,
-    56, 28, 66, 44, 60, 38, 74, 50,
-  ];
-
-  const signalBars = bars
-    .map((height, index) => {
-      const x = 70 + index * 47;
-      const y = 570 - height;
-
-      return `
-        <rect
-          x="${x}"
-          y="${y}"
-          width="22"
-          height="${height}"
-          rx="3"
-          fill="${index % 6 === 0 ? accent : subtle}"
-        />
-      `;
-    })
-    .join("");
-
   // ==========================================================
   // SVG
+  //
+  // ONLY:
+  // - Header
+  // - Statistics
+  // - Vertical separators
+  //
+  // NO:
+  // - Activity Signal
+  // - Signal bars
+  // - Calendar
+  // - "NO CALENDAR"
   // ==========================================================
 
   return `
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="1280"
-  height="720"
-  viewBox="0 0 1280 720"
+  height="380"
+  viewBox="0 0 1280 380"
 >
 
   <!-- ======================================================
@@ -276,7 +249,7 @@ function createCard({ dark }) {
     x="10"
     y="10"
     width="1260"
-    height="700"
+    height="360"
     fill="${background}"
     stroke="${border}"
     stroke-width="2"
@@ -333,7 +306,7 @@ function createCard({ dark }) {
 
 
   <!-- ======================================================
-       Vertical separators
+       Vertical Separators
        ====================================================== -->
 
   <line
@@ -363,109 +336,6 @@ function createCard({ dark }) {
     stroke-width="2"
   />
 
-
-  <!-- ======================================================
-       Signal Field Section
-       ====================================================== -->
-
-  <text
-    x="70"
-    y="385"
-    fill="${foreground}"
-    font-family="monospace"
-    font-size="18"
-    font-weight="700"
-  >
-    ACTIVITY SIGNAL
-  </text>
-
-  <text
-    x="1210"
-    y="385"
-    text-anchor="end"
-    fill="${muted}"
-    font-family="monospace"
-    font-size="14"
-    font-weight="700"
-  >
-    REPOSITORY ACTIVITY
-  </text>
-
-
-  <!-- ======================================================
-       Signal Divider
-       ====================================================== -->
-
-  <line
-    x1="70"
-    y1="410"
-    x2="1210"
-    y2="410"
-    stroke="${border}"
-    stroke-width="2"
-  />
-
-
-  <!-- ======================================================
-       Signal Bars
-       ====================================================== -->
-
-  ${signalBars}
-
-
-  <!-- ======================================================
-       Bottom Divider
-       ====================================================== -->
-
-  <line
-    x1="70"
-    y1="615"
-    x2="1210"
-    y2="615"
-    stroke="${border}"
-    stroke-width="2"
-  />
-
-
-  <!-- ======================================================
-       Footer
-       ====================================================== -->
-
-  <text
-    x="70"
-    y="655"
-    fill="${muted}"
-    font-family="monospace"
-    font-size="15"
-    font-weight="700"
-  >
-    CONTRIBUTIONS · STARS · PULL REQUESTS · ISSUES
-  </text>
-
-  <text
-    x="1210"
-    y="655"
-    text-anchor="end"
-    fill="${muted}"
-    font-family="monospace"
-    font-size="15"
-    font-weight="700"
-  >
-    NO CALENDAR
-  </text>
-
-
-  <!-- ======================================================
-       Accent
-       ====================================================== -->
-
-  <circle
-    cx="1195"
-    cy="690"
-    r="5"
-    fill="${accent}"
-  />
-
 </svg>
 `;
 }
@@ -479,14 +349,14 @@ fs.mkdirSync("profile", {
 });
 
 fs.writeFileSync(
-  "profile/signal-field-wide-light.svg",
+  "profile/signal-field-v2-wide-light.svg",
   createCard({
     dark: false,
   })
 );
 
 fs.writeFileSync(
-  "profile/signal-field-wide-dark.svg",
+  "profile/signal-field-v2-wide-dark.svg",
   createCard({
     dark: true,
   })
