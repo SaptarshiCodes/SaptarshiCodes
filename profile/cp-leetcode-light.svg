@@ -1,0 +1,56 @@
+<svg width="500" height="220" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="220" fill="#FFFFFF"/>
+  <rect x="0.5" y="0.5" width="499" height="219" fill="none" stroke="#D8DCE5"/>
+  
+  
+  <!-- Icon -->
+  <g transform="translate(20, 15)"><g transform="scale(0.92)"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" fill="#FFA116"/></g></g>
+  <!-- Handle -->
+  <text x="54" y="34" fill="#1F2328" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="14" font-weight="700">saptarshi_codes</text>
+  <!-- Platform label -->
+  <text x="480" y="34" text-anchor="end" fill="#FFA116" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="9" font-weight="700" letter-spacing="0.6">LEETCODE</text>
+  <!-- Divider -->
+  <line x1="20" y1="52" x2="480" y2="52" stroke="#D8DCE5" stroke-width="0.8"/>
+
+  <!-- Left: Donut ring -->
+  
+  <circle cx="60" cy="136" r="36" fill="none" stroke="#F0F2F4" stroke-width="6"/>
+  <circle cx="60" cy="136" r="36" fill="none" stroke="#FFA116" stroke-width="6"
+          stroke-linecap="round" stroke-dasharray="166.7 226.2"
+          transform="rotate(-90 60 136)"/>
+  <text x="60" y="131" text-anchor="middle" fill="#1F2328" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="17" font-weight="700">1769</text>
+  <text x="60" y="146" text-anchor="middle" fill="#6B7280" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650">RATING</text>
+  <text x="60" y="161" text-anchor="middle" fill="#FFA116" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="9" font-weight="700">TOP 16.5%</text>
+
+  <!-- Right stats Row 1 -->
+  
+  <text x="135" y="72" fill="#6B7280" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650" letter-spacing="0.5">CONTEST RANK</text>
+  <text x="135" y="92" fill="#1F2328" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="20" font-weight="700">#86,584</text>
+  
+  <text x="310" y="72" fill="#6B7280" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650" letter-spacing="0.5">GLOBAL RANK</text>
+  <text x="310" y="92" fill="#1F2328" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="20" font-weight="700">#529,846</text>
+
+  <!-- Right stats Row 2 -->
+  
+  <text x="135" y="122" fill="#6B7280" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650" letter-spacing="0.5">SOLVED PROBLEMS</text>
+  <text x="135" y="142" fill="#1F2328" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="20" font-weight="700">302</text>
+  <g transform="translate(310, 122)">
+    <text x="0" y="0" fill="#6B7280" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650" letter-spacing="0.5">DIFFICULTY BREAKDOWN</text>
+    <text x="0" y="20" fill="#00B8A3" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="12" font-weight="700">121 <tspan fill="#8C959F" font-size="9" font-weight="500">EASY</tspan></text>
+    <text x="65" y="20" fill="#FFC01E" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="12" font-weight="700">148 <tspan fill="#8C959F" font-size="9" font-weight="500">MED</tspan></text>
+    <text x="125" y="20" fill="#FF375F" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="12" font-weight="700">33 <tspan fill="#8C959F" font-size="9" font-weight="500">HARD</tspan></text>
+  </g>
+
+  <!-- Segmented Progress Bar -->
+  <text x="135" y="166" fill="#8C959F" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650" letter-spacing="0.4">SOLVED RATIO: 40% EASY · 49% MEDIUM · 11% HARD</text>
+  <g transform="translate(135, 172)">
+    <rect x="0" y="0" width="340" height="5" fill="#F0F2F4"/>
+    <rect x="0" y="0" width="136.2" height="5" fill="#00B8A3"/>
+    <rect x="136.2" y="0" width="166.6" height="5" fill="#FFC01E"/>
+    <rect x="302.8" y="0" width="37.2" height="5" fill="#FF375F"/>
+  </g>
+
+  <!-- Footer -->
+  <text x="20" y="208" fill="#8C959F" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="600">leetcode.com/u/saptarshi_codes</text>
+  <text x="480" y="208" text-anchor="end" fill="#8C959F" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="600">302 PROBLEMS SOLVED</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg width="500" height="220" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="220" fill="#FFFFFF"/>
+  <rect x="0.5" y="0.5" width="499" height="219" fill="none" stroke="#D8DCE5"/>
+  
+  
+  <!-- Icon -->
+  <g transform="translate(20, 15)"><rect x="0" y="8" width="5" height="13" rx="1" fill="#FFC107"/>
+  <rect x="8" y="0" width="5" height="21" rx="1" fill="#2196F3"/>
+  <rect x="16" y="4" width="5" height="17" rx="1" fill="#F44336"/></g>
+  <!-- Handle -->
+  <text x="54" y="34" fill="#1F2328" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="14" font-weight="700">Saptarshi_codes</text>
+  <!-- Platform label -->
+  <text x="480" y="34" text-anchor="end" fill="#1F8ACB" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="9" font-weight="700" letter-spacing="0.6">CODEFORCES</text>
+  <!-- Divider -->
+  <line x1="20" y1="52" x2="480" y2="52" stroke="#D8DCE5" stroke-width="0.8"/>
+
+  <!-- Left: Donut ring -->
+  
+  <circle cx="60" cy="136" r="36" fill="none" stroke="#F0F2F4" stroke-width="6"/>
+  <circle cx="60" cy="136" r="36" fill="none" stroke="#77C500" stroke-width="6"
+          stroke-linecap="round" stroke-dasharray="149.1 226.2"
+          transform="rotate(-90 60 136)"/>
+  <text x="60" y="131" text-anchor="middle" fill="#1F2328" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="17" font-weight="700">1318</text>
+  <text x="60" y="146" text-anchor="middle" fill="#6B7280" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650">RATING</text>
+  <text x="60" y="161" text-anchor="middle" fill="#77C500" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="9" font-weight="700">PUPIL</text>
+
+  <!-- Right stats Row 1 -->
+  
+  <text x="135" y="72" fill="#6B7280" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650" letter-spacing="0.5">MAX RATING</text>
+  <text x="135" y="92" fill="#1F2328" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="20" font-weight="700">1383</text>
+  
+  <text x="310" y="72" fill="#6B7280" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650" letter-spacing="0.5">PROBLEMS SOLVED</text>
+  <text x="310" y="92" fill="#1F2328" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="20" font-weight="700">48</text>
+
+  <!-- Right stats Row 2 -->
+  
+  <text x="135" y="122" fill="#6B7280" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650" letter-spacing="0.5">RATED CONTESTS</text>
+  <text x="135" y="142" fill="#1F2328" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="20" font-weight="700">12</text>
+  
+  <text x="310" y="122" fill="#6B7280" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650" letter-spacing="0.5">CURRENT RANK</text>
+  <text x="310" y="142" fill="#77C500" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="20" font-weight="700">PUPIL</text>
+
+  <!-- Tier Progress Bar -->
+  <text x="135" y="166" fill="#8C959F" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650" letter-spacing="0.4">PUPIL TIER PROGRESS  59%  (1200-1400)</text>
+  
+  <rect x="135" y="172" width="340" height="5" fill="#F0F2F4"/>
+  <rect x="135" y="172" width="200.6" height="5" fill="#77C500"/>
+
+  <!-- Footer -->
+  <text x="20" y="208" fill="#8C959F" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="600">codeforces.com/profile/Saptarshi_codes</text>
+  <text x="480" y="208" text-anchor="end" fill="#8C959F" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="600">PEAK 1383</text>
+</svg>

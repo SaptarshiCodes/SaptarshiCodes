@@ -1,0 +1,36 @@
+{
+  "codeforces": {
+    "handle": "Saptarshi_codes",
+    "rating": 1318,
+    "maxRating": 1383,
+    "rank": "pupil",
+    "maxRank": "pupil",
+    "solved": 48
+  },
+  "atcoder": {
+    "handle": "SaptarshiCodes",
+    "rating": 80,
+    "maxRating": 80,
+    "rank": 414821,
+    "solved": 4
+  },
+  "codechef": {
+    "handle": "saptarshi010",
+    "rating": 1445,
+    "maxRating": 1445,
+    "stars": "2\u2605",
+    "rank": 33837,
+    "countryRank": 32161,
+    "solved": 14
+  },
+  "leetcode": {
+    "handle": "saptarshi_codes",
+    "rating": 1769,
+    "contestRank": 86584,
+    "rank": 529846,
+    "solved": 302,
+    "easy": 121,
+    "medium": 148,
+    "hard": 33
+  }
+}
