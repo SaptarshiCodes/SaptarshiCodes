@@ -29,18 +29,18 @@ Regular participant in competitive programming contests across LeetCode, Codefor
 ### LeetCode
 Profile: [leetcode.com/u/saptarshi_codes](https://leetcode.com/u/saptarshi_codes/)
 
-[![Rating](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=FFA116&label=Rating&url=https%3A%2F%2Falfa-leetcode-api.onrender.com%2Fsaptarshi_codes%2Fcontest&query=%24.contestRating)](https://leetcode.com/u/saptarshi_codes/)
-[![Max Rating](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=FFA116&label=Max%20Rating&url=https%3A%2F%2Falfa-leetcode-api.onrender.com%2Fsaptarshi_codes%2Fcontest&query=%24.contestRating)](https://leetcode.com/u/saptarshi_codes/)
+[![Rating](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=FFA116&label=Rating&url=https%3A%2F%2Fraw.githubusercontent.com%2FSaptarshiCodes%2FSaptarshiCodes%2Fmain%2Fstats.json&query=%24.leetcode.rating)](https://leetcode.com/u/saptarshi_codes/)
+[![Max Rating](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=FFA116&label=Max%20Rating&url=https%3A%2F%2Fraw.githubusercontent.com%2FSaptarshiCodes%2FSaptarshiCodes%2Fmain%2Fstats.json&query=%24.leetcode.rating)](https://leetcode.com/u/saptarshi_codes/)
 [![Rank](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=FFA116&label=Rank&url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fleetcode%2Fsaptarshi_codes&query=%24.rank)](https://leetcode.com/u/saptarshi_codes/)
 [![Solved](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=FFA116&label=Solved&url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fleetcode%2Fsaptarshi_codes&query=%24.problemsSolved)](https://leetcode.com/u/saptarshi_codes/)
 [![Easy](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=00B8A3&label=Easy&url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fleetcode%2Fsaptarshi_codes&query=%24.submissions%5B1%5D.count)](https://leetcode.com/u/saptarshi_codes/)
 [![Medium](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=FFC01E&label=Medium&url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fleetcode%2Fsaptarshi_codes&query=%24.submissions%5B2%5D.count)](https://leetcode.com/u/saptarshi_codes/)
 [![Hard](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=FF375F&label=Hard&url=https%3A%2F%2Fcp-rating-api.vercel.app%2Fleetcode%2Fsaptarshi_codes&query=%24.submissions%5B3%5D.count)](https://leetcode.com/u/saptarshi_codes/)
 
-<p>
+<p align="left">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/cp-leetcode-dark.svg">
-    <img alt="LeetCode Stats Card" src="./profile/cp-leetcode-light.svg" width="100%">
+    <img alt="LeetCode Stats Card" src="./profile/cp-leetcode-light.svg" width="500">
   </picture>
 </p>
 
@@ -51,10 +51,10 @@ Profile: [codeforces.com/profile/Saptarshi_codes](https://codeforces.com/profile
 [![Max Rating](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=1F8ACB&label=Max%20Rating&url=https%3A%2F%2Fcodeforces.com%2Fapi%2Fuser.info%3Fhandles%3DSaptarshi_codes&query=%24.result%5B0%5D.maxRating)](https://codeforces.com/profile/Saptarshi_codes)
 [![Rank](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=1F8ACB&label=Rank&url=https%3A%2F%2Fcodeforces.com%2Fapi%2Fuser.info%3Fhandles%3DSaptarshi_codes&query=%24.result%5B0%5D.rank)](https://codeforces.com/profile/Saptarshi_codes)
 
-<p>
+<p align="left">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/cp-codeforces-dark.svg">
-    <img alt="Codeforces Stats Card" src="./profile/cp-codeforces-light.svg" width="100%">
+    <img alt="Codeforces Stats Card" src="./profile/cp-codeforces-light.svg" width="500">
   </picture>
 </p>
 
@@ -67,10 +67,10 @@ Profile: [codechef.com/users/saptarshi010](https://www.codechef.com/users/saptar
 [![Solved](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=5B4638&label=Solved&url=https%3A%2F%2Fcodechefapi.vercel.app%2Fsaptarshi010&query=%24.numberOfProblemsSolved)](https://www.codechef.com/users/saptarshi010)
 [![Stars](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=5B4638&label=Stars&url=https%3A%2F%2Fcodechefapi.vercel.app%2Fsaptarshi010&query=%24.stars)](https://www.codechef.com/users/saptarshi010)
 
-<p>
+<p align="left">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/cp-codechef-dark.svg">
-    <img alt="CodeChef Stats Card" src="./profile/cp-codechef-light.svg" width="100%">
+    <img alt="CodeChef Stats Card" src="./profile/cp-codechef-light.svg" width="500">
   </picture>
 </p>
 
@@ -82,10 +82,10 @@ Profile: [atcoder.jp/users/SaptarshiCodes](https://atcoder.jp/users/SaptarshiCod
 [![Rank](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=222222&label=AC%20Rank&url=https%3A%2F%2Fkenkoooo.com%2Fatcoder%2Fatcoder-api%2Fv3%2Fuser%2Fac_rank%3Fuser%3DSaptarshiCodes&query=%24.rank)](https://atcoder.jp/users/SaptarshiCodes)
 [![Solved](https://img.shields.io/badge/dynamic/json?style=flat-square&labelColor=1f2328&color=222222&label=Solved&url=https%3A%2F%2Fkenkoooo.com%2Fatcoder%2Fatcoder-api%2Fv3%2Fuser%2Fac_rank%3Fuser%3DSaptarshiCodes&query=%24.count)](https://atcoder.jp/users/SaptarshiCodes)
 
-<p>
+<p align="left">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/cp-atcoder-dark.svg">
-    <img alt="AtCoder Stats Card" src="./profile/cp-atcoder-light.svg" width="100%">
+    <img alt="AtCoder Stats Card" src="./profile/cp-atcoder-light.svg" width="500">
   </picture>
 </p>
 
@@ -111,7 +111,7 @@ Core algorithmic topics and problem patterns practiced across platforms:
 
 ## GitHub Activity
 
-<p align="center">
+<p align="left">
   <picture>
     <source
       media="(prefers-color-scheme: dark)"
@@ -120,12 +120,12 @@ Core algorithmic topics and problem patterns practiced across platforms:
     <img
       alt="GitHub activity summary"
       src="./profile/signal-field-v2-wide-light.svg"
-      width="100%"
+      width="500"
     >
   </picture>
 </p>
 
-<p align="center">
+<p align="left">
   <picture>
     <source
       media="(prefers-color-scheme: dark)"
@@ -134,12 +134,12 @@ Core algorithmic topics and problem patterns practiced across platforms:
     <img
       alt="GitHub contribution activity"
       src="./profile/activity-consistency-wide-light.svg"
-      width="100%"
+      width="500"
     >
   </picture>
 </p>
 
-<p align="center">
+<p align="left">
   <picture>
     <source
       media="(prefers-color-scheme: dark)"
@@ -148,7 +148,7 @@ Core algorithmic topics and problem patterns practiced across platforms:
     <img
       alt="GitHub language composition"
       src="./profile/language-composition-wide-light.svg"
-      width="100%"
+      width="500"
     >
   </picture>
 </p>

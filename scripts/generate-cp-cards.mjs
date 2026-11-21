@@ -146,13 +146,13 @@ function generateLeetcodeCard(isDark) {
   const { text0, text1, text2, lineBg, font } = theme;
   const d = stats.leetcode || {};
 
-  const rating = d.rating ?? 1769;
+  const rating = Math.round(d.rating ?? 1769);
   const contestRank = d.contestRank ? `#${Number(d.contestRank).toLocaleString()}` : "#86,584";
   const globalRank = d.rank ? `#${Number(d.rank).toLocaleString()}` : "#529,846";
-  const solved = d.solved ?? 302;
-  const easy = d.easy ?? 121;
-  const medium = d.medium ?? 148;
-  const hard = d.hard ?? 33;
+  const solved = Math.round(d.solved ?? 302);
+  const easy = Math.round(d.easy ?? 121);
+  const medium = Math.round(d.medium ?? 148);
+  const hard = Math.round(d.hard ?? 33);
 
   const brand = "#FFA116";
   const easyColor = "#00B8A3";
