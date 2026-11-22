@@ -91,16 +91,6 @@ Profile: [atcoder.jp/users/SaptarshiCodes](https://atcoder.jp/users/SaptarshiCod
 
 ---
 
-## Data Structures & Algorithms
-
-Core algorithmic topics and problem patterns practiced across platforms:
-
-- **Linear Data Structures:** Arrays, Strings, Linked Lists, Stacks, Queues
-- **Non-Linear Data Structures:** Binary Trees, Binary Search Trees, Heaps, Graphs
-- **Algorithms & Techniques:** Two Pointers, Sliding Window, Binary Search, Depth-First Search, Breadth-First Search, Dynamic Programming, Greedy Algorithms, Recursion & Backtracking
-
----
-
 ## Education
 
 - **Bachelor of Engineering in Information Technology**  
