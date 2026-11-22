@@ -34,7 +34,7 @@
   <!-- Right stats Row 2 -->
   
   <text x="135" y="122" fill="#6B7280" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650" letter-spacing="0.5">GLOBAL AC RANK</text>
-  <text x="135" y="142" fill="#1F2328" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="20" font-weight="700">#414,821</text>
+  <text x="135" y="142" fill="#1F2328" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="20" font-weight="700">#414,846</text>
   
   <text x="310" y="122" fill="#6B7280" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="8" font-weight="650" letter-spacing="0.5">RATED CONTESTS</text>
   <text x="310" y="142" fill="#1F2328" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="20" font-weight="700">1</text>
