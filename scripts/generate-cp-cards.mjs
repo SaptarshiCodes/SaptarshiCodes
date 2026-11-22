@@ -53,75 +53,12 @@ const W = 500;
 const H = 220;
 
 // ============================================================
-// SVG SHELL FOR CP CARDS (WITH REACT BITS <ShapeGrid />)
+// SVG SHELL FOR CP CARDS
 // ============================================================
-function shell(theme, inner, cardId = "cp", cardAccent = null) {
-  const isDark = (theme === DARK);
+function shell(theme, inner) {
   const { bg, border } = theme;
-  const accent = cardAccent || theme.accent;
-  const id = `${cardId}_${isDark ? 'dark' : 'light'}`;
-  const gridLineColor = isDark ? '#1a202c' : '#E6EBF2';
-  const gridDotColor = isDark ? '#2e384d' : '#D0D7DE';
-
   return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <style>
-      <![CDATA[
-      @keyframes shapeGridDrift {
-        0% { transform: translate(0px, 0px); }
-        100% { transform: translate(36px, -36px); }
-      }
-      @keyframes cellTwinkleA {
-        0%, 100% { opacity: 0; }
-        50% { opacity: 0.45; }
-      }
-      @keyframes cellTwinkleB {
-        0%, 100% { opacity: 0; }
-        50% { opacity: 0.35; }
-      }
-      .shape-grid-drift {
-        animation: shapeGridDrift 20s linear infinite;
-      }
-      .twinkle-a {
-        animation: cellTwinkleA 6s ease-in-out infinite;
-      }
-      .twinkle-b {
-        animation: cellTwinkleB 8.5s ease-in-out infinite 2s;
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .shape-grid-drift, .twinkle-a, .twinkle-b { animation: none !important; }
-      }
-      ]]>
-    </style>
-    <!-- React Bits ShapeGrid Pattern & Mask -->
-    <pattern id="shapeGrid_${id}" width="36" height="36" patternUnits="userSpaceOnUse">
-      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="${gridLineColor}" stroke-width="0.8"/>
-      <circle cx="0" cy="0" r="1.2" fill="${gridDotColor}"/>
-    </pattern>
-    <radialGradient id="gridFadeMask_${id}" cx="50%" cy="50%" r="65%">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
-      <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0.45"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05"/>
-    </radialGradient>
-    <mask id="shapeGridMask_${id}">
-      <rect width="${W}" height="${H}" fill="url(#gridFadeMask_${id})"/>
-    </mask>
-  </defs>
-
-  <!-- Background Base -->
   <rect width="${W}" height="${H}" fill="${bg}"/>
-
-  <!-- React Bits <ShapeGrid /> Background Layer -->
-  <g mask="url(#shapeGridMask_${id})" pointer-events="none">
-    <g class="shape-grid-drift">
-      <rect x="-72" y="-72" width="${W + 144}" height="${H + 144}" fill="url(#shapeGrid_${id})"/>
-    </g>
-    <!-- Twinkling Lit Cells (ShapeGrid twinkle) -->
-    <rect x="432" y="36" width="35" height="35" rx="3" fill="${accent}" fill-opacity="0.18" stroke="${accent}" stroke-width="0.8" class="twinkle-a"/>
-    <rect x="216" y="144" width="35" height="35" rx="3" fill="${accent}" fill-opacity="0.15" stroke="${accent}" stroke-width="0.8" class="twinkle-b"/>
-    <rect x="72" y="72" width="35" height="35" rx="3" fill="${accent}" fill-opacity="0.12" stroke="${accent}" stroke-width="0.8" class="twinkle-a"/>
-  </g>
-
   <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" fill="none" stroke="${border}"/>
   ${inner}
 </svg>`;
@@ -566,7 +503,7 @@ function generateLeetcodeCard(isDark) {
   <text x="20" y="${H - 12}" fill="${text2}" font-family="${font}" font-size="8" font-weight="600">leetcode.com/u/saptarshi_codes</text>
   <text x="${W - 20}" y="${H - 12}" text-anchor="end" fill="${text2}" font-family="${font}" font-size="8" font-weight="600">302 PROBLEMS SOLVED</text>`;
 
-  return shell(theme, inner, "lc", brand);
+  return shell(theme, inner);
 }
 
 // ============================================================
@@ -617,7 +554,7 @@ function generateCodeforcesCard(isDark) {
   <text x="20" y="${H - 12}" fill="${text2}" font-family="${font}" font-size="8" font-weight="600">codeforces.com/profile/Saptarshi_codes</text>
   <text x="${W - 20}" y="${H - 12}" text-anchor="end" fill="${text2}" font-family="${font}" font-size="8" font-weight="600">PEAK ${maxRating}</text>`;
 
-  return shell(theme, inner, "cf", brand);
+  return shell(theme, inner);
 }
 
 // ============================================================
@@ -668,7 +605,7 @@ function generateCodechefCard(isDark) {
   <text x="20" y="${H - 12}" fill="${text2}" font-family="${font}" font-size="8" font-weight="600">codechef.com/users/saptarshi010</text>
   <text x="${W - 20}" y="${H - 12}" text-anchor="end" fill="${text2}" font-family="${font}" font-size="8" font-weight="600">DIVISION 3</text>`;
 
-  return shell(theme, inner, "cc", tierColor);
+  return shell(theme, inner);
 }
 
 // ============================================================
@@ -719,7 +656,7 @@ function generateAtCoderCard(isDark) {
   <text x="20" y="${H - 12}" fill="${text2}" font-family="${font}" font-size="8" font-weight="600">atcoder.jp/users/SaptarshiCodes</text>
   <text x="${W - 20}" y="${H - 12}" text-anchor="end" fill="${text2}" font-family="${font}" font-size="8" font-weight="600">PEAK ${maxRating}</text>`;
 
-  return shell(theme, inner, "at", brand);
+  return shell(theme, inner);
 }
 
 // ============================================================
