@@ -174,7 +174,7 @@
   <line x1="32" y1="54" x2="968" y2="54" stroke="#30363d" stroke-width="0.8"/>
 
   <!-- ── H1: NAME (64px — bold & eye-catching) ──── -->
-  <text x="32" y="132"
+  <text x="32" y="124"
     fill="#F7F3EA"
     font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     font-size="64"
@@ -182,7 +182,7 @@
     letter-spacing="-0.03em">Saptarshi Manna</text>
 
   <!-- ── H2: ANIMATED ROLE (20px) ──────────── -->
-  <g transform="translate(32, 180)">
+  <g transform="translate(32, 188)">
     <text x="0" y="0" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="400">&gt; </text>
     <g transform="translate(28, 0)">
       <g class="r-1">
@@ -201,15 +201,15 @@
   </g>
 
   <!-- ── H3: ACADEMIC CREDENTIALS (20/17px) ── -->
-  <g transform="translate(32, 220)">
+  <g transform="translate(32, 226)">
     <rect x="0" y="0" width="5" height="58" rx="2.5" fill="#F08A5B"/>
     <text x="20" y="22" fill="#F7F3EA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="700">Bachelor of Engineering · Information Technology</text>
     <text x="20" y="48" fill="#AAA8B4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="500">Jadavpur University, Kolkata · <tspan fill="#F08A5B" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-weight="700">BE IT&#39;28</tspan></text>
   </g>
 
   <!-- ── BODY COPY (16/15px) ───────────────── -->
-  <text x="32" y="318" fill="#AAA8B4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="400">Architecting scalable systems and solving complex algorithmic challenges.</text>
-  <text x="32" y="350" fill="#7D8590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="400">Active across LeetCode · Codeforces · CodeChef · AtCoder</text>
+  <text x="32" y="320" fill="#AAA8B4" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="400">Architecting scalable systems and solving complex algorithmic challenges.</text>
+  <text x="32" y="348" fill="#7D8590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="400">Active across LeetCode · Codeforces · CodeChef · AtCoder</text>
 
   <!-- ── VERTICAL DIVIDER ────────────────── -->
   <line x1="640" y1="54" x2="640" y2="370" stroke="#30363d" stroke-width="0.8"/>

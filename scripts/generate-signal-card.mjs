@@ -194,7 +194,7 @@ function createCard({ dark }) {
 >
 
   <!-- ======================================================
-       Background
+       Background & Border
        ====================================================== -->
 
   <rect
@@ -203,6 +203,16 @@ function createCard({ dark }) {
     width="1280"
     height="300"
     fill="${background}"
+  />
+
+  <rect
+    x="1"
+    y="1"
+    width="1278"
+    height="298"
+    fill="none"
+    stroke="${divider}"
+    stroke-width="2"
   />
 
 

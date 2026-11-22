@@ -63,7 +63,7 @@ export default function HeroBannerWithShapeGrid({ isDark = true }) {
         <div style={{ fontSize: '9.5px', fontWeight: 700, color: text1, letterSpacing: '0.7px', marginBottom: '20px' }}>
           ACTIVE STATUS · BE IT'28 @ JADAVPUR UNIVERSITY
         </div>
-        <h1 style={{ margin: '0 0 10px 0', fontSize: '64px', fontWeight: 800, color: text0, letterSpacing: '-0.03em' }}>
+        <h1 style={{ margin: '0 0 24px 0', fontSize: '64px', fontWeight: 800, color: text0, letterSpacing: '-0.03em' }}>
           Saptarshi Manna
         </h1>
         <div style={{ fontSize: '20px', color: text1, fontFamily: 'monospace', marginBottom: '22px' }}>

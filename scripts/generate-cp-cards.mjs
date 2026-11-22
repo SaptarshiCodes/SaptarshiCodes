@@ -209,11 +209,11 @@ function generateIntroCard(isDark) {
   // --- Layout Y positions (left column) ---
   const statusY  = 36;   // status bar baseline
   const divY1    = 54;   // top horizontal rule
-  const nameY    = 132;  // H1: name  (font-size 52 → cap height ~72px, so starts at ~60)
-  const roleY    = 180;  // H2: role typewriter (font-size 20)
-  const accrY    = 220;  // H3: academic block top
-  const bodyY1   = 318;  // body tagline 1
-  const bodyY2   = 350;  // body tagline 2
+  const nameY    = 124;  // H1: name (font-size 64)
+  const roleY    = 188;  // H2: role typewriter (font-size 20 — generous space below name)
+  const accrY    = 226;  // H3: academic block top
+  const bodyY1   = 320;  // body tagline 1
+  const bodyY2   = 348;  // body tagline 2
   const divY2    = 370;  // bottom guard / wheel boundary
 
   return `<svg width="${introW}" height="${introH}" viewBox="0 0 ${introW} ${introH}" fill="none" xmlns="http://www.w3.org/2000/svg">
