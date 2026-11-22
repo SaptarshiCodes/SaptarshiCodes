@@ -10,6 +10,14 @@ Information Technology undergraduate at Jadavpur University, Kolkata. Focused on
 
 ---
 
+## Education
+
+- **Bachelor of Engineering in Information Technology**  
+  Jadavpur University, Kolkata, India  
+  *WBJEE Rank: 505*
+
+---
+
 ## Tech Stack
 
 | Category | Technologies |
@@ -88,14 +96,6 @@ Profile: [atcoder.jp/users/SaptarshiCodes](https://atcoder.jp/users/SaptarshiCod
     <img alt="AtCoder Stats Card" src="./profile/cp-atcoder-light.svg" width="500">
   </picture>
 </p>
-
----
-
-## Education
-
-- **Bachelor of Engineering in Information Technology**  
-  Jadavpur University, Kolkata, India  
-  *WBJEE Rank: 505*
 
 ---
 
