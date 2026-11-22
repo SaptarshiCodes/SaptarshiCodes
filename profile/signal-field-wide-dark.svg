@@ -6,6 +6,50 @@
   viewBox="0 0 1280 720"
 >
 
+  <defs>
+    <style>
+      <![CDATA[
+      @keyframes shapeGridDrift {
+        0% { transform: translate(0px, 0px); }
+        100% { transform: translate(36px, -36px); }
+      }
+      @keyframes cellTwinkleA {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 0.45; }
+      }
+      @keyframes cellTwinkleB {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 0.35; }
+      }
+      .shape-grid-drift {
+        animation: shapeGridDrift 20s linear infinite;
+      }
+      .twinkle-a {
+        animation: cellTwinkleA 6s ease-in-out infinite;
+      }
+      .twinkle-b {
+        animation: cellTwinkleB 8.5s ease-in-out infinite 2s;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .shape-grid-drift, .twinkle-a, .twinkle-b { animation: none !important; }
+      }
+      ]]>
+    </style>
+    <!-- React Bits ShapeGrid Pattern & Mask -->
+    <pattern id="sgPattern_profile_signal_field_wide_dark_svg" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#1a202c" stroke-width="0.8"/>
+      <circle cx="0" cy="0" r="1.2" fill="#2e384d"/>
+    </pattern>
+    <radialGradient id="grad_sgMask_profile_signal_field_wide_dark_svg" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05"/>
+    </radialGradient>
+    <mask id="sgMask_profile_signal_field_wide_dark_svg">
+      <rect width="1280" height="300" fill="url(#grad_sgMask_profile_signal_field_wide_dark_svg)"/>
+    </mask>
+  </defs>
+
   <!-- ======================================================
        Background
        ====================================================== -->
@@ -19,6 +63,17 @@
     stroke="#303644"
     stroke-width="2"
   />
+
+  <!-- React Bits <ShapeGrid /> Background Layer -->
+  <g mask="url(#sgMask_profile_signal_field_wide_dark_svg)" pointer-events="none">
+    <g class="shape-grid-drift">
+      <rect x="-72" y="-72" width="1424" height="444" fill="url(#sgPattern_profile_signal_field_wide_dark_svg)"/>
+    </g>
+    <rect x="468" y="72" width="35" height="35" rx="3" fill="#ff8068" fill-opacity="0.18" stroke="#ff8068" stroke-width="0.8" class="twinkle-a"/>
+    <rect x="864" y="180" width="35" height="35" rx="3" fill="#ff8068" fill-opacity="0.14" stroke="#ff8068" stroke-width="0.8" class="twinkle-b"/>
+    <rect x="180" y="216" width="35" height="35" rx="3" fill="#ff8068" fill-opacity="0.18" stroke="#ff8068" stroke-width="0.8" class="twinkle-a"/>
+    <rect x="1116" y="108" width="35" height="35" rx="3" fill="#ff8068" fill-opacity="0.14" stroke="#ff8068" stroke-width="0.8" class="twinkle-b"/>
+  </g>
 
 
   <!-- ======================================================

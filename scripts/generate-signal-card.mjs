@@ -184,6 +184,9 @@ function createCard({ dark }) {
     ? "#ff8068"
     : "#e66b55";
 
+  const gridLine = dark ? "#1a202c" : "#E6EBF2";
+  const gridDot = dark ? "#2e384d" : "#D0D7DE";
+  const themeKey = dark ? "dark" : "light";
 
   return `
 <svg
@@ -192,6 +195,48 @@ function createCard({ dark }) {
   height="300"
   viewBox="0 0 1280 300"
 >
+  <defs>
+    <style>
+      <![CDATA[
+      @keyframes shapeGridDrift {
+        0% { transform: translate(0px, 0px); }
+        100% { transform: translate(36px, -36px); }
+      }
+      @keyframes cellTwinkleA {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 0.45; }
+      }
+      @keyframes cellTwinkleB {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 0.35; }
+      }
+      .shape-grid-drift {
+        animation: shapeGridDrift 20s linear infinite;
+      }
+      .twinkle-a {
+        animation: cellTwinkleA 6s ease-in-out infinite;
+      }
+      .twinkle-b {
+        animation: cellTwinkleB 8.5s ease-in-out infinite 2s;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .shape-grid-drift, .twinkle-a, .twinkle-b { animation: none !important; }
+      }
+      ]]>
+    </style>
+    <pattern id="sigGrid_${themeKey}" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="${gridLine}" stroke-width="0.8"/>
+      <circle cx="0" cy="0" r="1.2" fill="${gridDot}"/>
+    </pattern>
+    <radialGradient id="sigGridMaskGrad_${themeKey}" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05"/>
+    </radialGradient>
+    <mask id="sigGridMask_${themeKey}">
+      <rect width="1280" height="300" fill="url(#sigGridMaskGrad_${themeKey})"/>
+    </mask>
+  </defs>
 
   <!-- ======================================================
        Background
@@ -204,6 +249,17 @@ function createCard({ dark }) {
     height="300"
     fill="${background}"
   />
+
+  <!-- React Bits <ShapeGrid /> Background Layer -->
+  <g mask="url(#sigGridMask_${themeKey})" pointer-events="none">
+    <g class="shape-grid-drift">
+      <rect x="-72" y="-72" width="1424" height="444" fill="url(#sigGrid_${themeKey})"/>
+    </g>
+    <rect x="468" y="72" width="35" height="35" rx="3" fill="${accent}" fill-opacity="0.18" stroke="${accent}" stroke-width="0.8" class="twinkle-a"/>
+    <rect x="864" y="180" width="35" height="35" rx="3" fill="${accent}" fill-opacity="0.14" stroke="${accent}" stroke-width="0.8" class="twinkle-b"/>
+    <rect x="180" y="216" width="35" height="35" rx="3" fill="${accent}" fill-opacity="0.15" stroke="${accent}" stroke-width="0.8" class="twinkle-a"/>
+    <rect x="1116" y="108" width="35" height="35" rx="3" fill="${accent}" fill-opacity="0.12" stroke="${accent}" stroke-width="0.8" class="twinkle-b"/>
+  </g>
 
 
   <!-- ======================================================

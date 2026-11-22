@@ -1,20 +1,7 @@
-# Saptarshi Manna
-
-Software Developer with a focus on Full-Stack Engineering, Backend Architecture, and Algorithmic Problem Solving.
-
----
-
-## About
-
-Information Technology undergraduate at Jadavpur University, Kolkata. Focused on full-stack web engineering, scalable client-server architectures, and algorithmic problem solving. Builds web applications and services using TypeScript, JavaScript, Python, C++, and relational and document databases.
-
----
-
-## Education
-
-- **Bachelor of Engineering in Information Technology**  
-  Jadavpur University, Kolkata, India  
-  *WBJEE Rank: 505*
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./profile/intro-card-dark.svg">
+  <img alt="Saptarshi Manna · Software Developer" src="./profile/intro-card-light.svg" width="100%">
+</picture>
 
 ---
 
@@ -101,6 +88,26 @@ Profile: [atcoder.jp/users/SaptarshiCodes](https://atcoder.jp/users/SaptarshiCod
 
 ## GitHub Activity
 
+Overview of open-source development, commit cadence, and repository language composition across owned public repositories.
+
+Profile: [github.com/SaptarshiCodes](https://github.com/SaptarshiCodes)
+
+[![Contributions](https://img.shields.io/badge/Contributions-279%20Past%20Year-ff8068?style=flat-square&logo=github&logoColor=white)](https://github.com/SaptarshiCodes)
+[![Active Days](https://img.shields.io/badge/Active%20Days-59%20%2F%20365-FFA116?style=flat-square)](https://github.com/SaptarshiCodes)
+[![Current Streak](https://img.shields.io/badge/Current%20Streak-5%20Days-00E676?style=flat-square)](https://github.com/SaptarshiCodes)
+[![Longest Streak](https://img.shields.io/badge/Longest%20Streak-14%20Days-F08A5B?style=flat-square)](https://github.com/SaptarshiCodes)
+[![Public Repos](https://img.shields.io/badge/Public%20Repos-11-2196F3?style=flat-square&logo=git&logoColor=white)](https://github.com/SaptarshiCodes?tab=repositories)
+[![Primary Language](https://img.shields.io/badge/Primary%20Language-TypeScript%20(47%25)-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://github.com/SaptarshiCodes)
+
+| Metric | Telemetry | Details |
+| :--- | :--- | :--- |
+| **Total Contributions** | `279 Contributions` | Year-round code contributions, PRs, and commit history |
+| **Commit Cadence** | `59 Active Days` | Current streak: **5 days** · Longest streak: **14 days** |
+| **Repository Footprint** | `11 Public Repositories` | 1.28 MB of source code authored across web applications |
+| **Language Distribution** | `TypeScript & JavaScript` | **TypeScript** 47% · **JavaScript** 37% · **Python** 11% · **CSS** 3% |
+
+### Yearly Contribution Overview
+
 <p align="left">
   <picture>
     <source
@@ -115,6 +122,8 @@ Profile: [atcoder.jp/users/SaptarshiCodes](https://atcoder.jp/users/SaptarshiCod
   </picture>
 </p>
 
+### Contribution Consistency & Heatmap
+
 <p align="left">
   <picture>
     <source
@@ -128,6 +137,8 @@ Profile: [atcoder.jp/users/SaptarshiCodes](https://atcoder.jp/users/SaptarshiCod
     >
   </picture>
 </p>
+
+### Language Composition Across Repositories
 
 <p align="left">
   <picture>

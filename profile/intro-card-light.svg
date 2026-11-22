@@ -1,0 +1,267 @@
+<svg width="1000" height="280" viewBox="0 0 1000 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      <![CDATA[
+      @keyframes blinkCursor {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+      @keyframes pulseRadar {
+        0% { r: 3.5; opacity: 0.9; }
+        50% { r: 7.5; opacity: 0.15; }
+        100% { r: 3.5; opacity: 0.9; }
+      }
+      @keyframes cycleRole1 {
+        0%, 29% { opacity: 1; transform: translateY(0); }
+        33%, 100% { opacity: 0; transform: translateY(5px); }
+      }
+      @keyframes cycleRole2 {
+        0%, 29% { opacity: 0; transform: translateY(-5px); }
+        33%, 62% { opacity: 1; transform: translateY(0); }
+        66%, 100% { opacity: 0; transform: translateY(5px); }
+      }
+      @keyframes cycleRole3 {
+        0%, 62% { opacity: 0; transform: translateY(-5px); }
+        66%, 95% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(5px); }
+      }
+
+      /* React Bits ShapeGrid drifting background */
+      @keyframes shapeGridDrift {
+        0% { transform: translate(0px, 0px); }
+        100% { transform: translate(36px, -36px); }
+      }
+      @keyframes cellTwinkleA {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 0.45; }
+      }
+      @keyframes cellTwinkleB {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 0.35; }
+      }
+
+      .shape-grid-drift {
+        animation: shapeGridDrift 20s linear infinite;
+      }
+      .twinkle-a {
+        animation: cellTwinkleA 6s ease-in-out infinite;
+      }
+      .twinkle-b {
+        animation: cellTwinkleB 8.5s ease-in-out infinite 2s;
+      }
+
+      /* React Bits OptionWheel (side="right") curved trajectory with auto-motion */
+      @keyframes optionWheelMoveRight {
+        0%, 4.64% {
+          transform: translate(752px, 165px) rotate(0deg);
+          opacity: 1;
+          fill: #D97706;
+        }
+        7.14%, 11.79% {
+          transform: translate(770px, 129px) rotate(7deg);
+          opacity: 0.65;
+          fill: #57606A;
+        }
+        14.29%, 18.93% {
+          transform: translate(800px, 95px) rotate(15deg);
+          opacity: 0.25;
+          fill: #8C959F;
+        }
+        21.43% {
+          transform: translate(830px, 62px) rotate(22deg);
+          opacity: 0;
+        }
+        78.57% {
+          transform: translate(830px, 268px) rotate(-22deg);
+          opacity: 0;
+        }
+        85.71%, 90.36% {
+          transform: translate(800px, 235px) rotate(-15deg);
+          opacity: 0.25;
+          fill: #8C959F;
+        }
+        92.86%, 97.50% {
+          transform: translate(770px, 201px) rotate(-7deg);
+          opacity: 0.65;
+          fill: #57606A;
+        }
+        100% {
+          transform: translate(752px, 165px) rotate(0deg);
+          opacity: 1;
+          fill: #D97706;
+        }
+      }
+      .cursor { animation: blinkCursor 1s infinite; }
+      .radar-wave { animation: pulseRadar 2.2s infinite ease-in-out; }
+      .r-1 { animation: cycleRole1 9s infinite; }
+      .r-2 { animation: cycleRole2 9s infinite; }
+      .r-3 { animation: cycleRole3 9s infinite; }
+
+      .ow-item {
+        animation: optionWheelMoveRight 28s infinite cubic-bezier(0.25, 1, 0.5, 1);
+        transform-origin: 0px 0px;
+      }
+      .ow-item text {
+        font-family: ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace;
+        font-size: 13.5px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+      }
+      .ow-0 { animation-delay: 0s; }
+      .ow-1 { animation-delay: -26s; }
+      .ow-2 { animation-delay: -24s; }
+      .ow-3 { animation-delay: -22s; }
+      .ow-4 { animation-delay: -20s; }
+      .ow-5 { animation-delay: -18s; }
+      .ow-6 { animation-delay: -16s; }
+      .ow-7 { animation-delay: -14s; }
+      .ow-8 { animation-delay: -12s; }
+      .ow-9 { animation-delay: -10s; }
+      .ow-10 { animation-delay: -8s; }
+      .ow-11 { animation-delay: -6s; }
+      .ow-12 { animation-delay: -4s; }
+      .ow-13 { animation-delay: -2s; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .cursor, .radar-wave, .ow-item, .shape-grid-drift, .twinkle-a, .twinkle-b { animation: none !important; }
+        .r-1 { opacity: 1 !important; transform: none !important; animation: none !important; }
+        .r-2, .r-3 { display: none !important; }
+        .ow-0 { transform: translate(752px, 165px) rotate(0deg) !important; opacity: 1 !important; fill: #D97706 !important; }
+        .ow-1 { transform: translate(770px, 201px) rotate(-7deg) !important; opacity: 0.65 !important; fill: #57606A !important; }
+        .ow-2 { transform: translate(800px, 235px) rotate(-15deg) !important; opacity: 0.25 !important; fill: #8C959F !important; }
+        .ow-13 { transform: translate(770px, 129px) rotate(7deg) !important; opacity: 0.65 !important; fill: #57606A !important; }
+        .ow-12 { transform: translate(800px, 95px) rotate(15deg) !important; opacity: 0.25 !important; fill: #8C959F !important; }
+        .ow-3, .ow-4, .ow-5, .ow-6, .ow-7, .ow-8, .ow-9, .ow-10, .ow-11 { display: none !important; }
+      }
+      ]]>
+    </style>
+    <linearGradient id="heroAccent_light" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E05C3A" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#D97706" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#E05C3A" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="wheelFade_light" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="20%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="80%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- React Bits ShapeGrid Pattern & Mask -->
+    <pattern id="shapeGrid_light" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#E6EBF2" stroke-width="0.8"/>
+      <circle cx="0" cy="0" r="1.2" fill="#D0D7DE"/>
+    </pattern>
+    <radialGradient id="gridFadeMask_light" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.85"/>
+      <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="90%" stop-color="#FFFFFF" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="shapeGridMask_light">
+      <rect width="1000" height="280" fill="url(#gridFadeMask_light)"/>
+    </mask>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1000" height="280" fill="#FFFFFF"/>
+
+  <!-- React Bits <ShapeGrid /> Background Layer -->
+  <g mask="url(#shapeGridMask_light)" pointer-events="none">
+    <g class="shape-grid-drift">
+      <rect x="-72" y="-72" width="1144" height="424" fill="url(#shapeGrid_light)"/>
+    </g>
+    <!-- Twinkling Lit Cells (ShapeGrid twinkle) -->
+    <rect x="216" y="72" width="35" height="35" rx="3" fill="#E05C3A" fill-opacity="0.18" stroke="#D97706" stroke-width="0.8" class="twinkle-a"/>
+    <rect x="504" y="144" width="35" height="35" rx="3" fill="#E05C3A" fill-opacity="0.15" stroke="#D97706" stroke-width="0.8" class="twinkle-b"/>
+    <rect x="108" y="180" width="35" height="35" rx="3" fill="#E05C3A" fill-opacity="0.12" stroke="#D97706" stroke-width="0.8" class="twinkle-a"/>
+    <rect x="756" y="72" width="35" height="35" rx="3" fill="#E05C3A" fill-opacity="0.15" stroke="#D97706" stroke-width="0.8" class="twinkle-b"/>
+    <rect x="864" y="216" width="35" height="35" rx="3" fill="#E05C3A" fill-opacity="0.14" stroke="#D97706" stroke-width="0.8" class="twinkle-a"/>
+  </g>
+
+  <rect x="0.5" y="0.5" width="999" height="279" fill="none" stroke="#D8DCE5"/>
+
+  <!-- Top Accent Rule -->
+  <line x1="0" y1="1" x2="1000" y2="1" stroke="url(#heroAccent_light)" stroke-width="2"/>
+
+  <!-- Top Bar: Status / Location Signals -->
+  <g transform="translate(32, 28)">
+    <circle cx="5" cy="5" r="3.5" fill="#10B981" class="radar-wave"/>
+    <circle cx="5" cy="5" r="3" fill="#10B981"/>
+    <text x="17" y="8.5" fill="#57606A" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8.5" font-weight="700" letter-spacing="0.6">ACTIVE STATUS · BE IT'28 @ JADAVPUR UNIVERSITY</text>
+  </g>
+  <text x="968" y="36.5" text-anchor="end" fill="#8C959F" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8.5" font-weight="600" letter-spacing="0.5">KOLKATA, INDIA · UTC+5:30</text>
+
+  <!-- Sub-header Divider -->
+  <line x1="32" y1="46" x2="968" y2="46" stroke="#D8DCE5" stroke-width="0.8"/>
+
+  <!-- ================= LEFT: DEVELOPER IDENTITY & ACADEMICS ================= -->
+  <!-- Name (Large typography) -->
+  <text x="32" y="96" fill="#1F2328" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" letter-spacing="-0.03em">Saptarshi Manna</text>
+
+  <!-- Animated Role Typewriter Prompt -->
+  <g transform="translate(32, 130)">
+    <text x="0" y="0" fill="#57606A" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="13.5" font-weight="500">&gt; Software Developer · </text>
+    <g transform="translate(196, 0)">
+      <g class="r-1">
+        <text x="0" y="0" fill="#E05C3A" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="13.5" font-weight="700">Full-Stack Engineering</text>
+        <text x="198" y="0" fill="#D97706" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="13.5" font-weight="700" class="cursor">|</text>
+      </g>
+      <g class="r-2">
+        <text x="0" y="0" fill="#E05C3A" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="13.5" font-weight="700">Backend Architecture</text>
+        <text x="184" y="0" fill="#D97706" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="13.5" font-weight="700" class="cursor">|</text>
+      </g>
+      <g class="r-3">
+        <text x="0" y="0" fill="#E05C3A" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="13.5" font-weight="700">Algorithmic Problem Solving</text>
+        <text x="248" y="0" fill="#D97706" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="13.5" font-weight="700" class="cursor">|</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Academic Credentials & Batch -->
+  <g transform="translate(32, 162)">
+    <rect x="0" y="0" width="4" height="42" rx="2" fill="#E05C3A"/>
+    <text x="16" y="17" fill="#1F2328" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700">Bachelor of Engineering in Information Technology</text>
+    <text x="16" y="36" fill="#57606A" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="500">Jadavpur University, Kolkata · <tspan fill="#E05C3A" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-weight="700">BE IT'28</tspan></text>
+  </g>
+
+  <!-- Narrative / Engineering Focus -->
+  <text x="32" y="232" fill="#57606A" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="400">Architecting scalable client-server systems and solving complex algorithmic challenges.</text>
+  <text x="32" y="254" fill="#8C959F" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400">Regular competitive programmer across LeetCode, Codeforces, CodeChef &amp; AtCoder.</text>
+
+  <!-- ================= VERTICAL DIVIDER ================= -->
+  <line x1="640" y1="54" x2="640" y2="266" stroke="#D8DCE5" stroke-width="0.8"/>
+
+  <!-- ================= RIGHT: <OptionWheel side="right" /> TECH STACK ================= -->
+  <!-- Wheel Header -->
+  <text x="664" y="70" fill="#E05C3A" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8.5" font-weight="700" letter-spacing="0.8">CORE TECH STACK · OPTION WHEEL</text>
+  <circle cx="860" cy="67" r="3" fill="#D97706"/>
+
+  <!-- Wheel Arc Track (Visual Guide on right side) -->
+  <path d="M 948 95 A 140 140 0 0 0 948 235" fill="none" stroke="#D8DCE5" stroke-width="1" stroke-dasharray="2 3"/>
+
+  <!-- OptionWheel Active Center Slot Box -->
+  <rect x="664" y="148" width="304" height="34" rx="6" fill="#F6F8FA" stroke="#E05C3A" stroke-width="1.2" stroke-opacity="0.8"/>
+  <polygon points="675,165 681,160 681,170" fill="#D97706"/>
+  <text x="689" y="169" fill="#D97706" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8.5" font-weight="700" letter-spacing="0.5">ACTIVE</text>
+  <line x1="733" y1="155" x2="733" y2="175" stroke="#D8DCE5" stroke-width="1"/>
+
+  <!-- Rotating Tech Stack Options (All 14 skills, animated curved motion) -->
+  <g class="ow-item ow-0"><text x="0" y="4">TypeScript</text></g>
+  <g class="ow-item ow-1"><text x="0" y="4">JavaScript</text></g>
+  <g class="ow-item ow-2"><text x="0" y="4">React</text></g>
+  <g class="ow-item ow-3"><text x="0" y="4">Node.js</text></g>
+  <g class="ow-item ow-4"><text x="0" y="4">Express.js</text></g>
+  <g class="ow-item ow-5"><text x="0" y="4">C++</text></g>
+  <g class="ow-item ow-6"><text x="0" y="4">Python</text></g>
+  <g class="ow-item ow-7"><text x="0" y="4">Java</text></g>
+  <g class="ow-item ow-8"><text x="0" y="4">PostgreSQL</text></g>
+  <g class="ow-item ow-9"><text x="0" y="4">MongoDB</text></g>
+  <g class="ow-item ow-10"><text x="0" y="4">MySQL</text></g>
+  <g class="ow-item ow-11"><text x="0" y="4">Tailwind CSS</text></g>
+  <g class="ow-item ow-12"><text x="0" y="4">Git</text></g>
+  <g class="ow-item ow-13"><text x="0" y="4">Linux</text></g>
+
+  <!-- Wheel Depth Fade Mask (Top and Bottom) -->
+  <rect x="664" y="74" width="304" height="182" fill="url(#wheelFade_light)" pointer-events="none"/>
+</svg>
