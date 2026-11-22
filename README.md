@@ -99,13 +99,6 @@ Profile: [github.com/SaptarshiCodes](https://github.com/SaptarshiCodes)
 [![Public Repos](https://img.shields.io/badge/Public%20Repos-11-2196F3?style=flat-square&logo=git&logoColor=white)](https://github.com/SaptarshiCodes?tab=repositories)
 [![Primary Language](https://img.shields.io/badge/Primary%20Language-TypeScript%20(47%25)-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://github.com/SaptarshiCodes)
 
-| Metric | Telemetry | Details |
-| :--- | :--- | :--- |
-| **Total Contributions** | `279 Contributions` | Year-round code contributions, PRs, and commit history |
-| **Commit Cadence** | `59 Active Days` | Current streak: **5 days** · Longest streak: **14 days** |
-| **Repository Footprint** | `11 Public Repositories` | 1.28 MB of source code authored across web applications |
-| **Language Distribution** | `TypeScript & JavaScript` | **TypeScript** 47% · **JavaScript** 37% · **Python** 11% · **CSS** 3% |
-
 ### Yearly Contribution Overview
 
 <p align="left">
