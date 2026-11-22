@@ -35,7 +35,7 @@ Profile: [leetcode.com/u/saptarshi_codes](https://leetcode.com/u/saptarshi_codes
 <p align="left">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/cp-leetcode-dark.svg">
-    <img alt="LeetCode Stats Card" src="./profile/cp-leetcode-light.svg" width="500">
+    <img alt="LeetCode Stats Card" src="./profile/cp-leetcode-light.svg" width="650">
   </picture>
 </p>
 
@@ -49,7 +49,7 @@ Profile: [codeforces.com/profile/Saptarshi_codes](https://codeforces.com/profile
 <p align="left">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/cp-codeforces-dark.svg">
-    <img alt="Codeforces Stats Card" src="./profile/cp-codeforces-light.svg" width="500">
+    <img alt="Codeforces Stats Card" src="./profile/cp-codeforces-light.svg" width="650">
   </picture>
 </p>
 
@@ -65,7 +65,7 @@ Profile: [codechef.com/users/saptarshi010](https://www.codechef.com/users/saptar
 <p align="left">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/cp-codechef-dark.svg">
-    <img alt="CodeChef Stats Card" src="./profile/cp-codechef-light.svg" width="500">
+    <img alt="CodeChef Stats Card" src="./profile/cp-codechef-light.svg" width="650">
   </picture>
 </p>
 
@@ -80,7 +80,7 @@ Profile: [atcoder.jp/users/SaptarshiCodes](https://atcoder.jp/users/SaptarshiCod
 <p align="left">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/cp-atcoder-dark.svg">
-    <img alt="AtCoder Stats Card" src="./profile/cp-atcoder-light.svg" width="500">
+    <img alt="AtCoder Stats Card" src="./profile/cp-atcoder-light.svg" width="650">
   </picture>
 </p>
 
@@ -110,7 +110,7 @@ Profile: [github.com/SaptarshiCodes](https://github.com/SaptarshiCodes)
     <img
       alt="GitHub activity summary"
       src="./profile/signal-field-v2-wide-light.svg"
-      width="500"
+      width="650"
     >
   </picture>
 </p>
@@ -126,7 +126,7 @@ Profile: [github.com/SaptarshiCodes](https://github.com/SaptarshiCodes)
     <img
       alt="GitHub contribution activity"
       src="./profile/activity-consistency-wide-light.svg"
-      width="500"
+      width="650"
     >
   </picture>
 </p>
@@ -142,23 +142,34 @@ Profile: [github.com/SaptarshiCodes](https://github.com/SaptarshiCodes)
     <img
       alt="GitHub language composition"
       src="./profile/language-composition-wide-light.svg"
-      width="500"
+      width="650"
     >
   </picture>
 </p>
 
 ---
 
-## Contact
+<h2 align="center">Contact Me</h2>
 
-<p>
+<p align="center">
+  I'm always open to discussing new software engineering opportunities, open-source collaborations, or innovative tech projects.<br> Feel free to reach out through any of the channels below!
+</p>
+
+<p align="center">
   <a href="mailto:mannasaptarshi1@gmail.com">
-    <img src="https://img.shields.io/badge/Email-mannasaptarshi1%40gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email" />
+    <img src="https://img.shields.io/badge/Email-mannasaptarshi1%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
   </a>
+  &nbsp;
   <a href="https://www.linkedin.com/in/saptarshi-manna-ju28/">
-    <img src="https://img.shields.io/badge/LinkedIn-saptarshi--manna--ju28-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" />
+    <img src="https://img.shields.io/badge/LinkedIn-saptarshi--manna--ju28-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
+  &nbsp;
   <a href="https://github.com/SaptarshiCodes">
-    <img src="https://img.shields.io/badge/GitHub-SaptarshiCodes-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
+    <img src="https://img.shields.io/badge/GitHub-SaptarshiCodes-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
+  <br>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile/contact-card-dark.svg">
+    <img alt="Soft Aurora · Saptarshi Manna" src="./profile/contact-card-light.svg" width="100%">
+  </picture>
 </p>

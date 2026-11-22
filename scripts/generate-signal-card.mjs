@@ -165,7 +165,7 @@ const dateRange =
 function createCard({ dark }) {
 
   const background = dark
-    ? "#12151d"
+    ? "#0d1117"
     : "#ffffff";
 
   const foreground = dark
@@ -177,7 +177,7 @@ function createCard({ dark }) {
     : "#6b7280";
 
   const divider = dark
-    ? "#303644"
+    ? "#30363d"
     : "#d8dce5";
 
   const accent = dark

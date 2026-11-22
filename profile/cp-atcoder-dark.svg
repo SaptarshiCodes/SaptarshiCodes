@@ -1,6 +1,6 @@
-<svg width="500" height="220" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
-  <rect width="500" height="220" fill="#12151d"/>
-  <rect x="0.5" y="0.5" width="499" height="219" fill="none" stroke="#303543"/>
+<svg width="650" height="220" viewBox="0 0 650 220" xmlns="http://www.w3.org/2000/svg">
+  <rect width="650" height="220" fill="#0d1117"/>
+  <rect x="0.5" y="0.5" width="649" height="219" fill="none" stroke="#30363d"/>
   
   
   <!-- Icon -->
@@ -9,43 +9,43 @@
   <!-- Handle -->
   <text x="54" y="34" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="14" font-weight="700">SaptarshiCodes</text>
   <!-- Platform label -->
-  <text x="480" y="34" text-anchor="end" fill="#00A0E9" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="9" font-weight="700" letter-spacing="0.6">ATCODER</text>
+  <text x="630" y="34" text-anchor="end" fill="#00A0E9" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="9" font-weight="700" letter-spacing="0.6">ATCODER</text>
   <!-- Divider -->
-  <line x1="20" y1="52" x2="480" y2="52" stroke="#303543" stroke-width="0.8"/>
+  <line x1="20" y1="52" x2="630" y2="52" stroke="#30363d" stroke-width="0.8"/>
 
-  <!-- Left: Donut ring -->
+  <!-- Left: Donut ring (Large Rank Pie Chart) -->
   
-  <circle cx="60" cy="136" r="36" fill="none" stroke="#1e222e" stroke-width="6"/>
-  <circle cx="60" cy="136" r="36" fill="none" stroke="#808080" stroke-width="6"
-          stroke-linecap="round" stroke-dasharray="45.2 226.2"
-          transform="rotate(-90 60 136)"/>
-  <text x="60" y="131" text-anchor="middle" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="17" font-weight="700">80</text>
-  <text x="60" y="146" text-anchor="middle" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650">RATING</text>
-  <text x="60" y="161" text-anchor="middle" fill="#808080" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="9" font-weight="700">GRAY</text>
+  <circle cx="82" cy="132" r="50" fill="none" stroke="#161b22" stroke-width="8.5"/>
+  <circle cx="82" cy="132" r="50" fill="none" stroke="#808080" stroke-width="8.5"
+          stroke-linecap="round" stroke-dasharray="62.8 314.2"
+          transform="rotate(-90 82 132)"/>
+  <text x="82" y="126" text-anchor="middle" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">80</text>
+  <text x="82" y="142" text-anchor="middle" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="9" font-weight="650" letter-spacing="0.4">RATING</text>
+  <text x="82" y="159" text-anchor="middle" fill="#808080" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="11" font-weight="700">GRAY</text>
 
   <!-- Right stats Row 1 -->
   
-  <text x="135" y="72" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.5">MAX RATING</text>
-  <text x="135" y="92" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">80</text>
+  <text x="175" y="72" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.5">MAX RATING</text>
+  <text x="175" y="92" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">80</text>
   
-  <text x="310" y="72" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.5">PROBLEMS SOLVED</text>
-  <text x="310" y="92" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">4</text>
+  <text x="385" y="72" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.5">PROBLEMS SOLVED</text>
+  <text x="385" y="92" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">4</text>
 
   <!-- Right stats Row 2 -->
   
-  <text x="135" y="122" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.5">GLOBAL AC RANK</text>
-  <text x="135" y="142" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">#414,846</text>
+  <text x="175" y="122" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.5">GLOBAL AC RANK</text>
+  <text x="175" y="142" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">#414,846</text>
   
-  <text x="310" y="122" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.5">RATED CONTESTS</text>
-  <text x="310" y="142" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">1</text>
+  <text x="385" y="122" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.5">RATED CONTESTS</text>
+  <text x="385" y="142" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">1</text>
 
   <!-- Tier Progress Bar -->
-  <text x="135" y="166" fill="#7D8590" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.4">GRAY TIER PROGRESS  20%  (0-400)</text>
+  <text x="175" y="166" fill="#7D8590" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.4">GRAY TIER PROGRESS  20%  (0-400)</text>
   
-  <rect x="135" y="172" width="340" height="5" fill="#1e222e"/>
-  <rect x="135" y="172" width="68.0" height="5" fill="#808080"/>
+  <rect x="175" y="172" width="440" height="5" fill="#161b22"/>
+  <rect x="175" y="172" width="88.0" height="5" fill="#808080"/>
 
   <!-- Footer -->
   <text x="20" y="208" fill="#7D8590" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="600">atcoder.jp/users/SaptarshiCodes</text>
-  <text x="480" y="208" text-anchor="end" fill="#7D8590" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="600">PEAK 80</text>
+  <text x="630" y="208" text-anchor="end" fill="#7D8590" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="600">PEAK 80</text>
 </svg>

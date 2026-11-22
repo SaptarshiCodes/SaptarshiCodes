@@ -1,0 +1,113 @@
+<svg width="1000" height="220" viewBox="0 0 1000 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      <![CDATA[
+      @keyframes softFlow1 { 0%{transform:translateX(0px)} 100%{transform:translateX(-1000px)} }
+      @keyframes softFlow2 { 0%{transform:translateX(-1000px)} 100%{transform:translateX(0px)} }
+      @keyframes softFlow3 { 0%,100%{transform:translateX(-500px)} 50%{transform:translateX(0px)} }
+      @keyframes softBreathe { 0%,100%{opacity:.85} 50%{opacity:1} }
+      .fl1{animation:softFlow1 11s linear infinite}
+      .fl2{animation:softFlow2 15s linear infinite}
+      .fl3{animation:softFlow3 19s ease-in-out infinite}
+      .breathe{animation:softBreathe 4.5s ease-in-out infinite}
+      @media(prefers-reduced-motion:reduce){.fl1,.fl2,.fl3,.breathe{animation:none!important}}
+      ]]>
+    </style>
+
+    <!-- Blur filters: stdDeviation ≤14 so 3σ=42px. Crests at y=147. 147-42=105 > 0. No clip. -->
+    <filter id="spine_d"   x="-5%" y="-600%" width="110%" height="1200%"><feGaussianBlur stdDeviation="1.2"/></filter>
+    <filter id="core_d"    x="-5%" y="-600%" width="110%" height="1200%"><feGaussianBlur stdDeviation="2.4"/></filter>
+    <filter id="silk_d"    x="-5%" y="-600%" width="110%" height="1200%"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="halo_d"    x="-5%" y="-600%" width="110%" height="1200%"><feGaussianBlur stdDeviation="9"/></filter>
+    <filter id="ambient_d" x="-5%" y="-600%" width="110%" height="1200%"><feGaussianBlur stdDeviation="14"/></filter>
+
+    <!-- Thread 1: Magenta → Indigo → White → Cyan → Magenta -->
+    <linearGradient id="g1_d" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#e879f9" stop-opacity="0.58"/>
+      <stop offset="12%"  stop-color="#818cf8"   stop-opacity="0.58"/>
+      <stop offset="24%"  stop-color="#f1f5f9"      stop-opacity="0.88"/>
+      <stop offset="30%"  stop-color="#60a5fa"   stop-opacity="0.88"/>
+      <stop offset="38%"  stop-color="#22d3ee"       stop-opacity="0.58"/>
+      <stop offset="50%"  stop-color="#e879f9" stop-opacity="0.58"/>
+      <stop offset="60%"  stop-color="#818cf8"   stop-opacity="0.88"/>
+      <stop offset="72%"  stop-color="#6d28d9"     stop-opacity="0.58"/>
+      <stop offset="86%"  stop-color="#818cf8"   stop-opacity="0.58"/>
+      <stop offset="100%" stop-color="#e879f9" stop-opacity="0.58"/>
+    </linearGradient>
+    <linearGradient id="g1c_d" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#e879f9" stop-opacity="0.58"/>
+      <stop offset="16%"  stop-color="#818cf8"   stop-opacity="0.88"/>
+      <stop offset="26%"  stop-color="#f1f5f9"      stop-opacity="0.88"/>
+      <stop offset="34%"  stop-color="#60a5fa"   stop-opacity="0.88"/>
+      <stop offset="44%"  stop-color="#e879f9" stop-opacity="0.58"/>
+      <stop offset="58%"  stop-color="#818cf8"   stop-opacity="0.88"/>
+      <stop offset="74%"  stop-color="#6d28d9"     stop-opacity="0.58"/>
+      <stop offset="88%"  stop-color="#818cf8"   stop-opacity="0.58"/>
+      <stop offset="100%" stop-color="#e879f9" stop-opacity="0.58"/>
+    </linearGradient>
+
+    <!-- Thread 2: Deep cobalt/violet undertone -->
+    <linearGradient id="g2_d" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#c084fc"  stop-opacity="0.26"/>
+      <stop offset="20%"  stop-color="#6d28d9"   stop-opacity="0.26"/>
+      <stop offset="34%"  stop-color="#3730a3"   stop-opacity="0.58"/>
+      <stop offset="48%"  stop-color="#c084fc"  stop-opacity="0.58"/>
+      <stop offset="58%"  stop-color="#818cf8" stop-opacity="0.58"/>
+      <stop offset="74%"  stop-color="#1e1b4b" stop-opacity="0.26"/>
+      <stop offset="88%"  stop-color="#c084fc"  stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#c084fc"  stop-opacity="0.26"/>
+    </linearGradient>
+
+    <!-- Thread 3: Cyan/Teal accent -->
+    <linearGradient id="g3_d" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#2dd4bf"    stop-opacity="0.26"/>
+      <stop offset="22%"  stop-color="#22d3ee"     stop-opacity="0.62"/>
+      <stop offset="42%"  stop-color="#60a5fa" stop-opacity="0.62"/>
+      <stop offset="62%"  stop-color="#6d28d9"   stop-opacity="0.26"/>
+      <stop offset="80%"  stop-color="#2dd4bf"    stop-opacity="0.62"/>
+      <stop offset="100%" stop-color="#22d3ee"     stop-opacity="0.26"/>
+    </linearGradient>
+  </defs>
+
+  <!-- NO background rect. NO masks. Threads dissipate naturally via gaussian falloff. -->
+  <g class="breathe">
+    <!-- Thread 2: cobalt/violet undertone -->
+    <g class="fl2" filter="url(#ambient_d)">
+      <path d="M -500 171 C -385 155, -305 139, -212 139 C -135 139, -105 213, -25 213 C 58 213, 138 165,    228 165 C 298 165,    340 181, 400 181 C 450 181, 420 189, 500 171 C 615 155, 695 139, 788 139 C 865 139, 895 213, 975 213 C 1058 213, 1138 165,    1228 165 C 1298 165,    1340 181, 1400 181 C 1450 181, 1420 189, 1500 171 C 1615 155, 1695 139, 1788 139 C 1865 139, 1895 213, 1975 213 C 2058 213, 2138 165,    2228 165 C 2298 165,    2340 181, 2400 181 C 2450 181, 2420 189, 2500 171 C 2615 155, 2695 139, 2788 139 C 2865 139, 2895 213, 2975 213 C 3058 213, 3138 165,    3228 165 C 3298 165,    3340 181, 3400 181 C 3450 181, 3420 189, 3500 171" stroke="url(#g2_d)" stroke-width="15"  stroke-linecap="round" fill="none" opacity="0.12"/>
+    </g>
+    <g class="fl2" filter="url(#silk_d)">
+      <path d="M -500 171 C -385 155, -305 139, -212 139 C -135 139, -105 213, -25 213 C 58 213, 138 165,    228 165 C 298 165,    340 181, 400 181 C 450 181, 420 189, 500 171 C 615 155, 695 139, 788 139 C 865 139, 895 213, 975 213 C 1058 213, 1138 165,    1228 165 C 1298 165,    1340 181, 1400 181 C 1450 181, 1420 189, 1500 171 C 1615 155, 1695 139, 1788 139 C 1865 139, 1895 213, 1975 213 C 2058 213, 2138 165,    2228 165 C 2298 165,    2340 181, 2400 181 C 2450 181, 2420 189, 2500 171 C 2615 155, 2695 139, 2788 139 C 2865 139, 2895 213, 2975 213 C 3058 213, 3138 165,    3228 165 C 3298 165,    3340 181, 3400 181 C 3450 181, 3420 189, 3500 171" stroke="url(#g2_d)" stroke-width="6.5" stroke-linecap="round" fill="none" opacity="0.58"/>
+    </g>
+    <g class="fl2" filter="url(#core_d)">
+      <path d="M -500 171 C -385 155, -305 139, -212 139 C -135 139, -105 213, -25 213 C 58 213, 138 165,    228 165 C 298 165,    340 181, 400 181 C 450 181, 420 189, 500 171 C 615 155, 695 139, 788 139 C 865 139, 895 213, 975 213 C 1058 213, 1138 165,    1228 165 C 1298 165,    1340 181, 1400 181 C 1450 181, 1420 189, 1500 171 C 1615 155, 1695 139, 1788 139 C 1865 139, 1895 213, 1975 213 C 2058 213, 2138 165,    2228 165 C 2298 165,    2340 181, 2400 181 C 2450 181, 2420 189, 2500 171 C 2615 155, 2695 139, 2788 139 C 2865 139, 2895 213, 2975 213 C 3058 213, 3138 165,    3228 165 C 3298 165,    3340 181, 3400 181 C 3450 181, 3420 189, 3500 171" stroke="url(#g2_d)" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.88"/>
+    </g>
+
+    <!-- Thread 3: cyan/teal accent -->
+    <g class="fl3" filter="url(#ambient_d)">
+      <path d="M -500 161 C -408  143, -325 135, -235 135 C -155 135, -105 187, -25 187 C 55 187, 105 140, 185 140 C 265 140, 335 193, 405 193 C 450 193, 440 177, 500 161 C 592  143, 675 135, 765 135 C 845 135, 895 187, 975 187 C 1055 187, 1105 140, 1185 140 C 1265 140, 1335 193, 1405 193 C 1450 193, 1440 177, 1500 161 C 1592  143, 1675 135, 1765 135 C 1845 135, 1895 187, 1975 187 C 2055 187, 2105 140, 2185 140 C 2265 140, 2335 193, 2405 193 C 2450 193, 2440 177, 2500 161 C 2592  143, 2675 135, 2765 135 C 2845 135, 2895 187, 2975 187 C 3055 187, 3105 140, 3185 140 C 3265 140, 3335 193, 3405 193 C 3450 193, 3440 177, 3500 161" stroke="url(#g3_d)" stroke-width="12"  stroke-linecap="round" fill="none" opacity="0.12"/>
+    </g>
+    <g class="fl3" filter="url(#silk_d)">
+      <path d="M -500 161 C -408  143, -325 135, -235 135 C -155 135, -105 187, -25 187 C 55 187, 105 140, 185 140 C 265 140, 335 193, 405 193 C 450 193, 440 177, 500 161 C 592  143, 675 135, 765 135 C 845 135, 895 187, 975 187 C 1055 187, 1105 140, 1185 140 C 1265 140, 1335 193, 1405 193 C 1450 193, 1440 177, 1500 161 C 1592  143, 1675 135, 1765 135 C 1845 135, 1895 187, 1975 187 C 2055 187, 2105 140, 2185 140 C 2265 140, 2335 193, 2405 193 C 2450 193, 2440 177, 2500 161 C 2592  143, 2675 135, 2765 135 C 2845 135, 2895 187, 2975 187 C 3055 187, 3105 140, 3185 140 C 3265 140, 3335 193, 3405 193 C 3450 193, 3440 177, 3500 161" stroke="url(#g3_d)" stroke-width="5"   stroke-linecap="round" fill="none" opacity="0.58"/>
+    </g>
+    <g class="fl3" filter="url(#core_d)">
+      <path d="M -500 161 C -408  143, -325 135, -235 135 C -155 135, -105 187, -25 187 C 55 187, 105 140, 185 140 C 265 140, 335 193, 405 193 C 450 193, 440 177, 500 161 C 592  143, 675 135, 765 135 C 845 135, 895 187, 975 187 C 1055 187, 1105 140, 1185 140 C 1265 140, 1335 193, 1405 193 C 1450 193, 1440 177, 1500 161 C 1592  143, 1675 135, 1765 135 C 1845 135, 1895 187, 1975 187 C 2055 187, 2105 140, 2185 140 C 2265 140, 2335 193, 2405 193 C 2450 193, 2440 177, 2500 161 C 2592  143, 2675 135, 2765 135 C 2845 135, 2895 187, 2975 187 C 3055 187, 3105 140, 3185 140 C 3265 140, 3335 193, 3405 193 C 3450 193, 3440 177, 3500 161" stroke="url(#g3_d)" stroke-width="1.9" stroke-linecap="round" fill="none" opacity="0.62"/>
+    </g>
+
+    <!-- Thread 1: front dominant — magenta/indigo/white -->
+    <g class="fl1" filter="url(#ambient_d)">
+      <path d="M -500 165 C -400 147, -320 127, -220 127 C -130 127, -100 199, -20 199 C 65 199, 130 157, 220 157 C 290 157, 330 175, 390 175 C 438 175, 415 185, 500 165 C 600 147, 680 127, 780 127 C 870 127, 900 199, 980 199 C 1065 199, 1130 157, 1220 157 C 1290 157, 1330 175, 1390 175 C 1438 175, 1415 185, 1500 165 C 1600 147, 1680 127, 1780 127 C 1870 127, 1900 199, 1980 199 C 2065 199, 2130 157, 2220 157 C 2290 157, 2330 175, 2390 175 C 2438 175, 2415 185, 2500 165 C 2600 147, 2680 127, 2780 127 C 2870 127, 2900 199, 2980 199 C 3065 199, 3130 157, 3220 157 C 3290 157, 3330 175, 3390 175 C 3438 175, 3415 185, 3500 165" stroke="url(#g1_d)"  stroke-width="16"  stroke-linecap="round" fill="none" opacity="0.12"/>
+    </g>
+    <g class="fl1" filter="url(#halo_d)">
+      <path d="M -500 165 C -400 147, -320 127, -220 127 C -130 127, -100 199, -20 199 C 65 199, 130 157, 220 157 C 290 157, 330 175, 390 175 C 438 175, 415 185, 500 165 C 600 147, 680 127, 780 127 C 870 127, 900 199, 980 199 C 1065 199, 1130 157, 1220 157 C 1290 157, 1330 175, 1390 175 C 1438 175, 1415 185, 1500 165 C 1600 147, 1680 127, 1780 127 C 1870 127, 1900 199, 1980 199 C 2065 199, 2130 157, 2220 157 C 2290 157, 2330 175, 2390 175 C 2438 175, 2415 185, 2500 165 C 2600 147, 2680 127, 2780 127 C 2870 127, 2900 199, 2980 199 C 3065 199, 3130 157, 3220 157 C 3290 157, 3330 175, 3390 175 C 3438 175, 3415 185, 3500 165" stroke="url(#g1_d)"  stroke-width="16"  stroke-linecap="round" fill="none" opacity="0.26"/>
+    </g>
+    <g class="fl1" filter="url(#silk_d)">
+      <path d="M -500 165 C -400 147, -320 127, -220 127 C -130 127, -100 199, -20 199 C 65 199, 130 157, 220 157 C 290 157, 330 175, 390 175 C 438 175, 415 185, 500 165 C 600 147, 680 127, 780 127 C 870 127, 900 199, 980 199 C 1065 199, 1130 157, 1220 157 C 1290 157, 1330 175, 1390 175 C 1438 175, 1415 185, 1500 165 C 1600 147, 1680 127, 1780 127 C 1870 127, 1900 199, 1980 199 C 2065 199, 2130 157, 2220 157 C 2290 157, 2330 175, 2390 175 C 2438 175, 2415 185, 2500 165 C 2600 147, 2680 127, 2780 127 C 2870 127, 2900 199, 2980 199 C 3065 199, 3130 157, 3220 157 C 3290 157, 3330 175, 3390 175 C 3438 175, 3415 185, 3500 165" stroke="url(#g1_d)"  stroke-width="7.5" stroke-linecap="round" fill="none" opacity="0.58"/>
+    </g>
+    <g class="fl1" filter="url(#core_d)">
+      <path d="M -500 165 C -400 147, -320 127, -220 127 C -130 127, -100 199, -20 199 C 65 199, 130 157, 220 157 C 290 157, 330 175, 390 175 C 438 175, 415 185, 500 165 C 600 147, 680 127, 780 127 C 870 127, 900 199, 980 199 C 1065 199, 1130 157, 1220 157 C 1290 157, 1330 175, 1390 175 C 1438 175, 1415 185, 1500 165 C 1600 147, 1680 127, 1780 127 C 1870 127, 1900 199, 1980 199 C 2065 199, 2130 157, 2220 157 C 2290 157, 2330 175, 2390 175 C 2438 175, 2415 185, 2500 165 C 2600 147, 2680 127, 2780 127 C 2870 127, 2900 199, 2980 199 C 3065 199, 3130 157, 3220 157 C 3290 157, 3330 175, 3390 175 C 3438 175, 3415 185, 3500 165" stroke="url(#g1c_d)" stroke-width="3.2" stroke-linecap="round" fill="none" opacity="0.88"/>
+    </g>
+    <g class="fl1" filter="url(#spine_d)">
+      <path d="M -500 165 C -400 147, -320 127, -220 127 C -130 127, -100 199, -20 199 C 65 199, 130 157, 220 157 C 290 157, 330 175, 390 175 C 438 175, 415 185, 500 165 C 600 147, 680 127, 780 127 C 870 127, 900 199, 980 199 C 1065 199, 1130 157, 1220 157 C 1290 157, 1330 175, 1390 175 C 1438 175, 1415 185, 1500 165 C 1600 147, 1680 127, 1780 127 C 1870 127, 1900 199, 1980 199 C 2065 199, 2130 157, 2220 157 C 2290 157, 2330 175, 2390 175 C 2438 175, 2415 185, 2500 165 C 2600 147, 2680 127, 2780 127 C 2870 127, 2900 199, 2980 199 C 3065 199, 3130 157, 3220 157 C 3290 157, 3330 175, 3390 175 C 3438 175, 3415 185, 3500 165" stroke="#f1f5f9"       stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.70"/>
+    </g>
+  </g>
+</svg>

@@ -20,20 +20,20 @@ const ALL_TECH_STACK = [
 ];
 
 export default function HeroBannerWithShapeGrid({ isDark = true }) {
-  const bg = isDark ? '#12151d' : '#FFFFFF';
-  const border = isDark ? '#303543' : '#D8DCE5';
+  const bg = isDark ? '#0d1117' : '#FFFFFF';
+  const border = isDark ? '#30363d' : '#D8DCE5';
   const text0 = isDark ? '#F7F3EA' : '#1F2328';
   const text1 = isDark ? '#AAA8B4' : '#57606A';
   const text2 = isDark ? '#7D8590' : '#8C959F';
   const accent = isDark ? '#F08A5B' : '#E05C3A';
   const accentGold = isDark ? '#FFA116' : '#D97706';
-  const gridLine = isDark ? '#1e2330' : '#EAEFF5';
+  const gridLine = isDark ? '#161b22' : '#EAEFF5';
 
   return (
     <div style={{
       position: 'relative',
       width: '1000px',
-      height: '280px',
+      height: '380px',
       background: bg,
       border: `1px solid ${border}`,
       borderRadius: '8px',
@@ -59,34 +59,37 @@ export default function HeroBannerWithShapeGrid({ isDark = true }) {
       </div>
 
       {/* Foreground Left Column: Developer Profile */}
-      <div style={{ position: 'relative', zIndex: 1, flex: '1 1 640px', padding: '24px 32px' }}>
-        <div style={{ fontSize: '9px', fontWeight: 700, color: text1, letterSpacing: '0.6px', marginBottom: '14px' }}>
+      <div style={{ position: 'relative', zIndex: 1, flex: '1 1 640px', padding: '32px 36px' }}>
+        <div style={{ fontSize: '9.5px', fontWeight: 700, color: text1, letterSpacing: '0.7px', marginBottom: '20px' }}>
           ACTIVE STATUS · BE IT'28 @ JADAVPUR UNIVERSITY
         </div>
-        <h1 style={{ margin: '0 0 6px 0', fontSize: '38px', fontWeight: 800, color: text0, letterSpacing: '-0.03em' }}>
+        <h1 style={{ margin: '0 0 10px 0', fontSize: '64px', fontWeight: 800, color: text0, letterSpacing: '-0.03em' }}>
           Saptarshi Manna
         </h1>
-        <div style={{ fontSize: '13.5px', color: text1, fontFamily: 'monospace', marginBottom: '16px' }}>
+        <div style={{ fontSize: '20px', color: text1, fontFamily: 'monospace', marginBottom: '22px' }}>
           &gt; Software Developer · <span style={{ color: accent, fontWeight: 700 }}>Full-Stack Engineering</span>
         </div>
-        <div style={{ borderLeft: `4px solid ${accent}`, paddingLeft: '12px', marginBottom: '16px' }}>
-          <div style={{ fontSize: '16px', fontWeight: 700, color: text0 }}>
-            Bachelor of Engineering in Information Technology
+        <div style={{ borderLeft: `5px solid ${accent}`, paddingLeft: '16px', marginBottom: '22px' }}>
+          <div style={{ fontSize: '20px', fontWeight: 700, color: text0 }}>
+            Bachelor of Engineering · Information Technology
           </div>
-          <div style={{ fontSize: '13px', color: text1, fontWeight: 500 }}>
+          <div style={{ fontSize: '17px', color: text1, fontWeight: 500, marginTop: '4px' }}>
             Jadavpur University, Kolkata · <span style={{ color: accent, fontWeight: 700 }}>BE IT'28</span>
           </div>
         </div>
-        <div style={{ fontSize: '13px', color: text1, lineHeight: 1.4 }}>
-          Architecting scalable client-server systems and solving complex algorithmic challenges.
+        <div style={{ fontSize: '16px', color: text1, lineHeight: 1.5, marginBottom: '6px' }}>
+          Architecting scalable systems and solving complex algorithmic challenges.
+        </div>
+        <div style={{ fontSize: '15px', color: text2 }}>
+          Active across LeetCode · Codeforces · CodeChef · AtCoder
         </div>
       </div>
 
       {/* Vertical Divider */}
-      <div style={{ width: '1px', height: '220px', background: border, zIndex: 1 }} />
+      <div style={{ width: '1px', height: '316px', background: border, zIndex: 1 }} />
 
       {/* Foreground Right Column: OptionWheel */}
-      <div style={{ position: 'relative', zIndex: 1, width: '340px', height: '100%' }}>
+      <div style={{ position: 'relative', zIndex: 1, width: '350px', height: '100%' }}>
         <OptionWheel
           items={ALL_TECH_STACK}
           defaultSelected={0}

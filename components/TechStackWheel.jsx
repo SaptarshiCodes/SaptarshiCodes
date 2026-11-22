@@ -23,9 +23,9 @@ export default function TechStackWheel({ isDark = true }) {
     <div style={{
       width: '320px',
       height: '280px',
-      background: isDark ? '#12151d' : '#FFFFFF',
+      background: isDark ? '#0d1117' : '#FFFFFF',
       borderRadius: '8px',
-      border: `1px solid ${isDark ? '#303543' : '#D8DCE5'}`,
+      border: `1px solid ${isDark ? '#30363d' : '#D8DCE5'}`,
       position: 'relative',
       overflow: 'hidden'
     }}>
