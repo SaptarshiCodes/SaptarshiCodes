@@ -11,7 +11,7 @@
     "handle": "SaptarshiCodes",
     "rating": 80,
     "maxRating": 80,
-    "rank": 414931,
+    "rank": 415037,
     "solved": 4
   },
   "codechef": {
@@ -25,12 +25,12 @@
   },
   "leetcode": {
     "handle": "saptarshi_codes",
-    "rating": 1769,
-    "contestRank": 86584,
-    "rank": 519731,
-    "solved": 303,
-    "easy": 122,
-    "medium": 148,
+    "rating": null,
+    "contestRank": null,
+    "rank": 517329,
+    "solved": 307,
+    "easy": 123,
+    "medium": 151,
     "hard": 33
   }
 }

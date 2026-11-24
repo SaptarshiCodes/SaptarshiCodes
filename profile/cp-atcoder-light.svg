@@ -34,7 +34,7 @@
   <!-- Right stats Row 2 -->
   
   <text x="175" y="122" fill="#57606A" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.5">GLOBAL AC RANK</text>
-  <text x="175" y="142" fill="#1F2328" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">#414,931</text>
+  <text x="175" y="142" fill="#1F2328" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">#415,037</text>
   
   <text x="385" y="122" fill="#57606A" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.5">RATED CONTESTS</text>
   <text x="385" y="142" fill="#1F2328" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">1</text>
