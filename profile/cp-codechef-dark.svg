@@ -20,7 +20,7 @@
           transform="rotate(-90 82 132)"/>
   <text x="82" y="126" text-anchor="middle" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">1445</text>
   <text x="82" y="142" text-anchor="middle" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="9" font-weight="650" letter-spacing="0.4">RATING</text>
-  <text x="82" y="159" text-anchor="middle" fill="#6BCFCF" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="12" font-weight="700">2★</text>
+  <text x="82" y="159" text-anchor="middle" fill="#6BCFCF" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="12" font-weight="700">1★</text>
 
   <!-- Right stats Row 1 -->
   

@@ -11,14 +11,14 @@
     "handle": "SaptarshiCodes",
     "rating": 80,
     "maxRating": 80,
-    "rank": 415037,
+    "rank": 415114,
     "solved": 4
   },
   "codechef": {
     "handle": "saptarshi010",
     "rating": 1445,
     "maxRating": 1445,
-    "stars": "2\u2605",
+    "stars": "1\u2605",
     "rank": 33837,
     "countryRank": 32161,
     "solved": 14
@@ -27,10 +27,10 @@
     "handle": "saptarshi_codes",
     "rating": null,
     "contestRank": null,
-    "rank": 517329,
-    "solved": 307,
-    "easy": 123,
-    "medium": 151,
+    "rank": 507348,
+    "solved": 310,
+    "easy": 124,
+    "medium": 153,
     "hard": 33
   }
 }
