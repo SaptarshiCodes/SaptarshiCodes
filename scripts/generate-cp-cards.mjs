@@ -376,7 +376,7 @@ ${kf}      }
 
   <!-- ── BODY COPY (16/15px) ───────────────── -->
   <text x="32" y="${bodyY1}" fill="${text1}" font-family="${sansFont}" font-size="16" font-weight="400">Architecting scalable systems and solving complex algorithmic challenges.</text>
-  <text x="32" y="${bodyY2}" fill="${text2}" font-family="${sansFont}" font-size="15" font-weight="400">Active across LeetCode · Codeforces · CodeChef · AtCoder</text>
+  <text x="32" y="${bodyY2}" fill="${text2}" font-family="${sansFont}" font-size="15" font-weight="400">Active across LeetCode · Codeforces · CodeChef</text><!-- · AtCoder -->
 
   <!-- ── VERTICAL DIVIDER ────────────────── -->
   <line x1="640" y1="${divY1}" x2="640" y2="${divY2}" stroke="${border}" stroke-width="0.8"/>
@@ -663,6 +663,7 @@ function main() {
     fs.writeFileSync("SaptarshiCodes/profile/cp-codechef-light.svg", ccLight);
   }
 
+  /*
   console.log("Generating AtCoder cards (#0d1117, consistent layout)...");
   const atDark = generateAtCoderCard(true);
   const atLight = generateAtCoderCard(false);
@@ -672,6 +673,7 @@ function main() {
     fs.writeFileSync("SaptarshiCodes/profile/cp-atcoder-dark.svg", atDark);
     fs.writeFileSync("SaptarshiCodes/profile/cp-atcoder-light.svg", atLight);
   }
+  */
 
   console.log("All cards generated successfully!");
 }

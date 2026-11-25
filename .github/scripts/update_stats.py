@@ -61,34 +61,34 @@ def get_codeforces_stats(handle: str = "Saptarshi_codes") -> Dict[str, Any]:
         return {"handle": handle, "rating": 1318, "maxRating": 1383, "rank": "pupil", "solved": 48}
 
 
-def get_atcoder_stats(handle: str = "SaptarshiCodes") -> Dict[str, Any]:
-    res: Dict[str, Any] = {"handle": handle, "rating": None, "maxRating": None, "rank": None, "solved": None}
-    try:
-        hist_raw = fetch_url(f"https://atcoder.jp/users/{handle}/history/json")
-        history = json.loads(hist_raw.decode("utf-8"))
-        ratings = [entry["NewRating"] for entry in history if "NewRating" in entry]
-        if ratings:
-            res["rating"] = ratings[-1]
-            res["maxRating"] = max(ratings)
-    except Exception as e:
-        print(f"Warning: Failed to fetch AtCoder contest history: {e}", file=sys.stderr)
-
-    try:
-        ken_raw = fetch_url(f"https://kenkoooo.com/atcoder/atcoder-api/v3/user/ac_rank?user={handle}")
-        ken_data = json.loads(ken_raw.decode("utf-8"))
-        res["rank"] = ken_data.get("rank")
-        res["solved"] = ken_data.get("count")
-    except Exception as e:
-        print(f"Warning: Failed to fetch Kenkoooo AtCoder AC rank: {e}", file=sys.stderr)
-
-    if res["rating"] is None:
-        res["rating"] = 80
-        res["maxRating"] = 80
-    if res["solved"] is None:
-        res["solved"] = 4
-        res["rank"] = 414821
-
-    return res
+# def get_atcoder_stats(handle: str = "SaptarshiCodes") -> Dict[str, Any]:
+#     res: Dict[str, Any] = {"handle": handle, "rating": None, "maxRating": None, "rank": None, "solved": None}
+#     try:
+#         hist_raw = fetch_url(f"https://atcoder.jp/users/{handle}/history/json")
+#         history = json.loads(hist_raw.decode("utf-8"))
+#         ratings = [entry["NewRating"] for entry in history if "NewRating" in entry]
+#         if ratings:
+#             res["rating"] = ratings[-1]
+#             res["maxRating"] = max(ratings)
+#     except Exception as e:
+#         print(f"Warning: Failed to fetch AtCoder contest history: {e}", file=sys.stderr)
+#
+#     try:
+#         ken_raw = fetch_url(f"https://kenkoooo.com/atcoder/atcoder-api/v3/user/ac_rank?user={handle}")
+#         ken_data = json.loads(ken_raw.decode("utf-8"))
+#         res["rank"] = ken_data.get("rank")
+#         res["solved"] = ken_data.get("count")
+#     except Exception as e:
+#         print(f"Warning: Failed to fetch Kenkoooo AtCoder AC rank: {e}", file=sys.stderr)
+#
+#     if res["rating"] is None:
+#         res["rating"] = 80
+#         res["maxRating"] = 80
+#     if res["solved"] is None:
+#         res["solved"] = 4
+#         res["rank"] = 414821
+#
+#     return res
 
 
 def get_codechef_stats(handle: str = "saptarshi010") -> Dict[str, Any]:
@@ -159,7 +159,7 @@ def main():
     print("Collecting stats across platforms...")
     stats = {
         "codeforces": get_codeforces_stats(),
-        "atcoder": get_atcoder_stats(),
+        # "atcoder": get_atcoder_stats(),
         "codechef": get_codechef_stats(),
         "leetcode": get_leetcode_stats(),
     }

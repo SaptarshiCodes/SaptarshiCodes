@@ -81,7 +81,8 @@ export default function HeroBannerWithShapeGrid({ isDark = true }) {
           Architecting scalable systems and solving complex algorithmic challenges.
         </div>
         <div style={{ fontSize: '15px', color: text2 }}>
-          Active across LeetCode · Codeforces · CodeChef · AtCoder
+          {/* Active across LeetCode · Codeforces · CodeChef · AtCoder */}
+          Active across LeetCode · Codeforces · CodeChef
         </div>
       </div>
 

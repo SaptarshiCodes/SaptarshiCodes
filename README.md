@@ -19,7 +19,8 @@
 
 ## Competitive Programming
 
-Regular participant in competitive programming contests across LeetCode, Codeforces, CodeChef, and AtCoder.
+<!-- Regular participant in competitive programming contests across LeetCode, Codeforces, CodeChef, and AtCoder. -->
+Regular participant in competitive programming contests across LeetCode, Codeforces, and CodeChef.
 
 ### LeetCode
 Profile: [leetcode.com/u/saptarshi_codes](https://leetcode.com/u/saptarshi_codes/)
@@ -69,6 +70,7 @@ Profile: [codechef.com/users/saptarshi010](https://www.codechef.com/users/saptar
   </picture>
 </p>
 
+<!--
 ### AtCoder
 Profile: [atcoder.jp/users/SaptarshiCodes](https://atcoder.jp/users/SaptarshiCodes)
 
@@ -83,6 +85,7 @@ Profile: [atcoder.jp/users/SaptarshiCodes](https://atcoder.jp/users/SaptarshiCod
     <img alt="AtCoder Stats Card" src="./profile/cp-atcoder-light.svg" width="650">
   </picture>
 </p>
+-->
 
 ---
 

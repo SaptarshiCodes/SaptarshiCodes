@@ -209,7 +209,7 @@
 
   <!-- ── BODY COPY (16/15px) ───────────────── -->
   <text x="32" y="320" fill="#57606A" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="400">Architecting scalable systems and solving complex algorithmic challenges.</text>
-  <text x="32" y="348" fill="#8C959F" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="400">Active across LeetCode · Codeforces · CodeChef · AtCoder</text>
+  <text x="32" y="348" fill="#8C959F" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="400">Active across LeetCode · Codeforces · CodeChef</text><!-- · AtCoder -->
 
   <!-- ── VERTICAL DIVIDER ────────────────── -->
   <line x1="640" y1="54" x2="640" y2="370" stroke="#D8DCE5" stroke-width="0.8"/>
