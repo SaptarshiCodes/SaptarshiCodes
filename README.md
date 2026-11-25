@@ -92,12 +92,12 @@ Overview of open-source development, commit cadence, and repository language com
 
 Profile: [github.com/SaptarshiCodes](https://github.com/SaptarshiCodes)
 
-[![Contributions](https://img.shields.io/badge/Contributions-279%20Past%20Year-ff8068?style=flat-square&logo=github&logoColor=white)](https://github.com/SaptarshiCodes)
-[![Active Days](https://img.shields.io/badge/Active%20Days-59%20%2F%20365-FFA116?style=flat-square)](https://github.com/SaptarshiCodes)
-[![Current Streak](https://img.shields.io/badge/Current%20Streak-5%20Days-00E676?style=flat-square)](https://github.com/SaptarshiCodes)
-[![Longest Streak](https://img.shields.io/badge/Longest%20Streak-14%20Days-F08A5B?style=flat-square)](https://github.com/SaptarshiCodes)
-[![Public Repos](https://img.shields.io/badge/Public%20Repos-11-2196F3?style=flat-square&logo=git&logoColor=white)](https://github.com/SaptarshiCodes?tab=repositories)
-[![Primary Language](https://img.shields.io/badge/Primary%20Language-TypeScript%20(47%25)-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://github.com/SaptarshiCodes)
+[![Contributions](https://img.shields.io/badge/dynamic/json?style=flat-square&color=ff8068&label=Contributions&logo=github&logoColor=white&cacheSeconds=300&url=https%3A%2F%2Fraw.githubusercontent.com%2FSaptarshiCodes%2FSaptarshiCodes%2Fmain%2Fprofile%2Fgithub-stats.json&query=%24.contributionsLabel)](https://github.com/SaptarshiCodes)
+[![Active Days](https://img.shields.io/badge/dynamic/json?style=flat-square&color=FFA116&label=Active%20Days&cacheSeconds=300&url=https%3A%2F%2Fraw.githubusercontent.com%2FSaptarshiCodes%2FSaptarshiCodes%2Fmain%2Fprofile%2Fgithub-stats.json&query=%24.activeDaysLabel)](https://github.com/SaptarshiCodes)
+[![Current Streak](https://img.shields.io/badge/dynamic/json?style=flat-square&color=00E676&label=Current%20Streak&cacheSeconds=300&url=https%3A%2F%2Fraw.githubusercontent.com%2FSaptarshiCodes%2FSaptarshiCodes%2Fmain%2Fprofile%2Fgithub-stats.json&query=%24.currentStreakLabel)](https://github.com/SaptarshiCodes)
+[![Longest Streak](https://img.shields.io/badge/dynamic/json?style=flat-square&color=F08A5B&label=Longest%20Streak&cacheSeconds=300&url=https%3A%2F%2Fraw.githubusercontent.com%2FSaptarshiCodes%2FSaptarshiCodes%2Fmain%2Fprofile%2Fgithub-stats.json&query=%24.longestStreakLabel)](https://github.com/SaptarshiCodes)
+[![Public Repos](https://img.shields.io/badge/dynamic/json?style=flat-square&color=2196F3&label=Public%20Repos&logo=git&logoColor=white&cacheSeconds=300&url=https%3A%2F%2Fraw.githubusercontent.com%2FSaptarshiCodes%2FSaptarshiCodes%2Fmain%2Fprofile%2Fgithub-stats.json&query=%24.publicRepos)](https://github.com/SaptarshiCodes?tab=repositories)
+[![Primary Language](https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fraw.githubusercontent.com%2FSaptarshiCodes%2FSaptarshiCodes%2Fmain%2Fprofile%2Fprimary-language-badge.json)](https://github.com/SaptarshiCodes)
 
 ### Yearly Contribution Overview
 

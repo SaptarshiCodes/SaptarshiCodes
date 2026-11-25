@@ -2,8 +2,17 @@ name: Update profile stats
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'README.md'
+      - 'scripts/generate-signal-card.mjs'
+      - 'scripts/generate-github-stats.mjs'
+      - 'scripts/fix-activity-card.mjs'
+      - '.github/workflows/profile-stats.yml'
   schedule:
-    - cron: '17 3 * * *'
+    - cron: '17 * * * *'
 
 permissions:
   contents: write
@@ -33,6 +42,17 @@ jobs:
 
       - name: Generate Signal Field
         run: node scripts/generate-signal-card.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+
+
+      # =====================================================
+      # GITHUB ACTIVITY STATS (DYNAMIC BADGE JSONS)
+      # =====================================================
+
+      - name: Generate GitHub Activity Stats
+        run: node scripts/generate-github-stats.mjs
         env:
           GITHUB_TOKEN: ${{ github.token }}
           GITHUB_USERNAME: ${{ github.repository_owner }}
@@ -100,6 +120,9 @@ jobs:
 
       - name: Validate generated cards
         run: |
+          test -s profile/signal-field-v2-wide-light.svg
+          test -s profile/signal-field-v2-wide-dark.svg
+
           test -s profile/signal-field-wide-light.svg
           test -s profile/signal-field-wide-dark.svg
 
@@ -109,6 +132,9 @@ jobs:
           test -s profile/language-composition-wide-light.svg
           test -s profile/language-composition-wide-dark.svg
 
+          test -s profile/github-stats.json
+          test -s profile/primary-language-badge.json
+
 
       # =====================================================
       # PUBLISH
@@ -116,7 +142,7 @@ jobs:
 
       - name: Stage changes
         run: |
-          git add profile/*.svg
+          git add profile/*.svg profile/*.json
 
 
       - name: Publish cards
@@ -130,5 +156,5 @@ jobs:
           git config user.email \
             "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git commit -m "Update profile stats"
+          git commit -m "Update profile stats [skip ci]"
           git push
