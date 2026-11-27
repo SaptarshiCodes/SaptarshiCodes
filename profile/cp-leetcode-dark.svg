@@ -28,16 +28,16 @@
   <text x="175" y="92" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">#76,628</text>
   
   <text x="385" y="72" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.5">GLOBAL RANK</text>
-  <text x="385" y="92" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">#500,262</text>
+  <text x="385" y="92" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">#498,139</text>
 
   <!-- Right stats Row 2 -->
   
   <text x="175" y="122" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.5">SOLVED PROBLEMS</text>
-  <text x="175" y="142" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">311</text>
+  <text x="175" y="142" fill="#F7F3EA" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="20" font-weight="700">313</text>
   <g transform="translate(385, 122)">
     <text x="0" y="0" fill="#AAA8B4" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.5">DIFFICULTY BREAKDOWN</text>
-    <text x="0" y="20" fill="#00B8A3" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="12" font-weight="700">124 <tspan fill="#7D8590" font-size="9" font-weight="500">EASY</tspan></text>
-    <text x="80" y="20" fill="#FFC01E" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="12" font-weight="700">153 <tspan fill="#7D8590" font-size="9" font-weight="500">MED</tspan></text>
+    <text x="0" y="20" fill="#00B8A3" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="12" font-weight="700">125 <tspan fill="#7D8590" font-size="9" font-weight="500">EASY</tspan></text>
+    <text x="80" y="20" fill="#FFC01E" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="12" font-weight="700">154 <tspan fill="#7D8590" font-size="9" font-weight="500">MED</tspan></text>
     <text x="160" y="20" fill="#FF375F" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="12" font-weight="700">34 <tspan fill="#7D8590" font-size="9" font-weight="500">HARD</tspan></text>
   </g>
 
@@ -45,9 +45,9 @@
   <text x="175" y="166" fill="#7D8590" font-family="ui-monospace, SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="8" font-weight="650" letter-spacing="0.4">SOLVED RATIO: 40% EASY · 49% MEDIUM · 11% HARD</text>
   <g transform="translate(175, 172)">
     <rect x="0" y="0" width="440" height="5" fill="#161b22"/>
-    <rect x="0" y="0" width="175.4" height="5" fill="#00B8A3"/>
-    <rect x="175.4" y="0" width="216.5" height="5" fill="#FFC01E"/>
-    <rect x="391.9" y="0" width="48.1" height="5" fill="#FF375F"/>
+    <rect x="0" y="0" width="175.7" height="5" fill="#00B8A3"/>
+    <rect x="175.7" y="0" width="216.5" height="5" fill="#FFC01E"/>
+    <rect x="392.2" y="0" width="47.8" height="5" fill="#FF375F"/>
   </g>
 
   <!-- Footer -->
